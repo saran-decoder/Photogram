@@ -1,0 +1,425 @@
+/**
+* This UI/UX Project is Complected and
+* Mrs min by Mobile Responsive Than
+* Some Plays I'am Writed Mrs CommandLine
+* And Also Mobile Responsive Scrollbar is Not Fixed Some CSS issus and After Rafar Google and I'am Fix...
+*/
+
+/* TODO: Saran Fix The Mobile Responsive Scrollbar CSS */
+
+/* Started CSS Body */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+:root{
+    /* Colors */
+    --body-color: #fff;
+    --bg-body-color: #d3d3d32b;
+    --box-border-color: #999;
+    --text-color: #000;
+    --timer-color: #999;
+    --more-color: #e9ecef;
+
+    /* Transition */
+    --tran-03: all 0.2s ease;
+    --tran-03: all 0.3s ease;
+    --tran-04: all 0.3s ease;
+    --tran-05: all 0.3s ease;
+}
+
+body.dark{
+    --body-color: #000;
+    --bg-body-color: #18191a;
+    --box-border-color: #fff;
+    --text-color: #fff;
+    --timer-color: #999;
+    --more-color: #999;
+}
+
+body{
+    min-height: 100vh;
+    background-color: var(--bg-body-color);
+    transition: var(--tran-05);
+    padding-right: 0px !important;
+    overflow: auto !important;
+}
+/* Ending CSS Body */
+
+
+/* Started Navbar */
+.rs-navbar {
+    background: var(--body-color);
+    box-shadow: 0 0 1px var(--box-border-color);
+    /* Mrs-CSS */
+    height: 3.4rem !important;
+    z-index: 1;
+}
+
+/* Mrs-CSS */
+.menu-links {
+    bottom: 0;
+    left: 0;
+    right: 0;
+    box-shadow: 0 0 1px var(--box-border-color);
+    background: var(--body-color);
+
+}
+
+/* Mrs-CSS */
+span.fs-4.hidden-text.text {
+    display: block;
+}
+
+/* Mrs-CSS */
+.notify {
+    top: 4px;
+    right: 10%;
+}
+
+/* Mrs-CSS */
+.profile {
+    top: 4px;
+    right: 0;
+}
+
+
+/* Reusable code - Here */
+.sidebar li{
+    height: 50px;
+    margin-right: 1rem;
+}
+
+.sidebar .icon{
+    min-width: 60px;
+    border-radius: 6px;
+}
+
+.sidebar .text,
+.sidebar .icon{
+    color: var(--text-color);
+    transition: var(--tran-03);
+    text-transform: none;
+}
+
+.sidebar li a{
+    border-radius: 2rem;
+    transition: var(--tran-03);
+    cursor: pointer;
+}
+
+.sidebar li a:hover{
+    background-color: none;
+}
+
+body.dark .sidebar li a:hover .icon,
+body.dark .sidebar li a:hover .text{
+    color: var(--text-color);
+}
+
+/* This is The Full Page Light Mode and Dark Mode CSS */
+.sidebar .mode{
+    border-radius: 6px;
+    background-color: var(--body-color);
+    transition: var(--tran-05);
+}
+
+.sidebar .bottom-content,
+.sidebar .bottom-content hr.m-0{
+    background-color: var(--body-color);
+    transition: var(--tran-03);
+    box-shadow: 0 0 1px var(--more-color);
+}
+
+.mode .sun-moon{
+    height: 35px;
+    width: 60px;
+}
+
+.mode .sun-moon i.sun{
+    opacity: 0;
+}
+
+body.dark .mode .sun-moon i.sun{
+    opacity: 1;
+}
+
+body.dark .mode .sun-moon i.moon{
+    opacity: 0;
+}
+
+.bottom-content .toggle-switch{
+    min-width: 60px;
+    cursor: pointer;
+}
+
+.toggle-switch .switch{
+    height: 22px;
+    width: 40px;
+    border-radius: 25px;
+    cursor: pointer;
+    background-color: var(--box-border-color);
+    transition: var(--tran-05);
+}
+
+.switch::before{
+    content: '';
+    position: absolute;
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);
+    background-color: var(--body-color);
+    transition: var(--tran-04);
+}
+
+body.dark .switch::before{
+    left: 20px;
+}
+/* Ending The Full Page Light Mode and Dark Mode CSS */
+/* Ending The Navbar */
+
+
+/* Mobile responsive text hidden and conditions css */
+body.dark .text{
+    color: var(--text-color) !important;
+}
+
+.unc-text {
+    text-decoration: none;
+}
+
+.dropdown-toggle::after {
+    display: none !important;
+}
+/* Ending the hidden text and conditions css */
+
+
+/* Main Body and Post Image Animation CSS */
+.card {
+    border-color: var(--body-color);
+    background: var(--body-color);
+    color: var(--text-color);
+}
+
+.card-img {
+    border-radius: 1rem;
+    box-shadow: 0 20px 30px -28px rgb(0 0 0 / 88%);
+}
+/* Ending Main Body and Post Image Animation CSS */
+
+
+/* Mobile responsive media screen css */
+@media (min-width: 1200px) {
+    .list {
+        max-width: 50% !important;
+        margin-left: 15rem !important;
+    }
+}
+
+@media (min-width: 992px) {
+    .list {
+        max-width: 70%;
+        margin-left: 13rem;
+        margin-right: 30rem;
+    }
+
+    i.p-0.icon {
+        background: none !important;
+        color: var(--text-color) !important;
+    }
+
+    .sidebar .nav-link {
+        margin-top: 28.8px !important;
+    }
+
+    .hidden-texts {
+        display: block !important;
+    }
+
+    .sidebar li a:hover{
+        background-color: var(--bg-body-color) !important;
+    }
+
+    /* Non-Mrs-CSS */
+    .my-3 {
+        display: block !important;
+        margin-top: auto !important;
+    }
+
+    /* Non-Mrs-CSS */
+    span.fs-4.hidden-text.text {
+        display: block !important;
+    }
+
+    .Next-btn {
+        margin-left: 26.5rem !important;
+    }
+
+}
+
+@media (min-width: 768px) {
+    .col-12 {
+        max-width: 70% !important;
+        margin-right: 2rem;
+        margin-left: 8rem;
+    }
+
+    .card {
+        margin-bottom: 1.8rem !important;
+        border-radius: 0.375rem !important;
+        box-shadow: 0 0 1px var(--box-border-color) !important;
+    }
+
+    .mt {
+        margin-top: 1.5rem !important;
+        margin-bottom: 1.8rem !important;
+        border-radius: 0.375rem !important;
+    }
+
+    .sidebar li a:hover{
+        background-color: 0 !important;
+    }
+
+    a.uploadround:hover {
+        background: none !important;
+    }
+
+    .hidden-texts {
+        display: none;
+    }
+
+    .sidebar li a {
+        margin-right: 0px !important;
+    }
+
+    /* Non-Mrs-CSS */
+    span.fs-4.hidden-text.text {
+        display: none;
+    }
+
+    /* This is the footer image in display the Mrs */
+    .hidden-img {
+        display: none;
+    }
+
+    /* Non-Mrs-CSS */
+    .my-3 {
+        display: block !important;
+        margin-top: 16px !important;
+    }
+
+    /* Non-Mrs-CSS */
+    .rs-navbar {
+        height: 100% !important;
+        width: auto !important;
+        /* z-index: 0; */
+    }
+
+    /* Non-Mrs-CSS */
+    .menu-links {
+        display: block !important;
+        /* Non-Mrs-CSS */
+        position: inherit !important;
+        box-shadow: 0 0 0;
+    }
+
+    /* Non-Mrs-CSS */
+    li.nav-link {
+        margin-top: 50% !important;
+        margin-right: auto !important;
+    }
+
+    /* Non-Mrs-CSS */
+    span.fs-4.hidden-text.text {
+        display: none;
+    }
+
+    /* Non-Mrs-CSS */
+    ul.bottom-content.dropdown-menu.p-2.show {
+        left: 2rem !important;
+    }
+
+    /* Non-Mrs-CSS */
+    .text.d-flex.align-items-center.mt-1 {
+        margin-top: auto !important;
+    }
+
+    /* Non-Mrs-CSS */
+    .card-body {
+        overflow: hidden !important;
+    }
+
+    /* Non-Mrs-CSS */
+    .Next-btn {
+        cursor: pointer !important;
+        display: block !important;
+        margin-top: 1.5rem !important;
+        margin-left: 28.2rem;
+    }
+
+    /* Non-Mrs-CSS */
+    .prev-btn {
+        display: block !important;
+        margin-top: 1.5rem !important;
+    }
+
+    /* Non-Mrs-CSS */
+    .notify {
+        position: inherit !important;
+    }
+
+    /* Non-Mrs-CSS */
+    .profile {
+        position: inherit !important;
+    }
+
+}
+
+@media (min-width: 576px) {
+    /* Write Code */
+}
+/* Ending mobile responsive media screen css */
+
+
+/* Started Full Web Scrollbar Styles CSS */
+/* width */
+::-webkit-scrollbar {
+    width: auto;
+}
+
+/* Track */
+/* ::-webkit-scrollbar-track {
+    background: var(--box-border-color);
+} */
+
+/* Handle */
+/* ::-webkit-scrollbar-thumb {
+    background: var(--body-color);
+} */
+
+/* Handle on hover */
+/* ::-webkit-scrollbar-thumb:hover {
+    background: #555;
+} */
+/* Started Full Web Scrollbar Styles CSS */
+
+
+/* This is The Bootstrap Rewrite and This Don't Use CSS */
+.form-check-input:focus {
+    border-color: #fff;
+    outline: none;
+    box-shadow: 0 0 0 0;
+}
+
+.form-check-input:checked {
+    background-color: var(--box-border-color);
+    --bs-form-check-bg-image: none !important;
+    border-color: #fff;
+}
+/* Ending The Bootstrap Rewrite and This Don't Use CSS */
