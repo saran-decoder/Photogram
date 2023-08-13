@@ -1,0 +1,262 @@
+:root {
+    --primary: #333;
+    --secondary: #333;
+    --errorColor: red;
+    --stepNumber: 6;
+    --containerWidth: 600px;
+    --bgColor: #333;
+    --inputBorderColor: lightgray;
+}
+
+.card-body .form-outer {
+    width: 100%;
+    overflow: hidden;
+}
+.card-body .form-outer form {
+    display: flex;
+    width: calc(100% * var(--stepNumber));
+}
+.form-outer form .page {
+    height: 33rem !important;
+    width: calc(100% / var(--stepNumber));
+    transition: margin-left 0.3s ease-in-out;
+}
+
+.form-outer form .page .field {
+    height: 45px;
+    margin: 45px 10px;
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+}
+form .page .field .label {
+    position: absolute;
+    top: -30px;
+    font-weight: 500;
+}
+form .page .field input {
+    box-sizing: border-box;
+    height: 100%;
+    width: 100%;
+    border: 1px solid var(--inputBorderColor);
+    border-radius: 5px;
+    padding-left: 15px;
+    margin: 0 1px;
+    font-size: 18px;
+    transition: border-color 150ms ease;
+}
+form .invalid-input {
+    color: red;
+}
+form .page .field select {
+    width: 100%;
+    padding-left: 10px;
+    font-size: 17px;
+    font-weight: 500;
+}
+form .page .field button {
+    border: none;
+    display: flex;
+    align-items: center;
+    background: none;
+    border-radius: 5px;
+    color: var(--text-color);
+    cursor: pointer;
+    font-size: 24px;
+    letter-spacing: 1px;
+    transition: 0.5s ease;
+}
+
+form .page .btns button.prev {
+    margin-right: 3px;
+    font-size: 17px;
+}
+form .page .btns button.next {
+    margin-left: 3px;
+}
+.card-body .progress-bars {
+    display: flex;
+    user-select: none;
+}
+.card-body .progress-bars .step {
+    text-align: center;
+    width: 100%;
+    position: relative;
+}
+.card-body .progress-bars .step p {
+    font-weight: 500;
+    font-size: 18px;
+    color: #000;
+    margin-bottom: 8px;
+}
+@media screen and (max-width: 490px) {
+    :root {
+        --card-bodyWidth: 100%;
+    }
+    .card-body {
+        box-sizing: border-box;
+        border-radius: 0;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.wrappers{
+    width: 100%;
+}
+.input-box .tweet-area{
+    position: relative;
+    min-height: 130px;
+    max-height: 170px;
+    overflow-y: auto;
+}
+.tweet-area::-webkit-scrollbar{
+    width: 0px;
+}
+.tweet-area .placeholder{
+    position: absolute;
+    margin-top: -3px;
+    font-size: 22px;
+    color: #98A5B1;
+    pointer-events: none;
+}
+.tweet-area .input{
+    outline: none;
+    font-size: 17px;
+    min-height: inherit;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+.tweet-area .editable{
+    position: relative;
+    z-index: 5;
+}
+.tweet-area .readonly{
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    color: transparent;
+    background: transparent;
+}
+/* .readonly .highlight{
+    color: #ff0018;
+} */
+/* .input-box .privacy{
+    color: #1da1f2;
+    margin: 15px 0;
+    display: inline-flex;
+    align-items: center;
+    padding: 7px 10px;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+.privacy:hover, .icons li:hover{
+    background: #e7f5fe;
+}
+.privacy i{
+    font-size: 18px;
+}
+.privacy span{
+    font-size: 15px;
+    font-weight: 600;
+    margin-left: 7px;
+} */
+/* .bottom{
+    display: flex;
+    margin-top: 13px;
+    align-items: center;
+    justify-content: space-between;
+} */
+.bottom .icons{
+    display: inline-flex;
+}
+.icons li{
+    list-style: none;
+    color: #1da1f2;
+    font-size: 20px;
+    margin: 0 2px;
+    height: 38px;
+    width: 38px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: background 0.2s ease;
+}
+.bottom .content{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.bottom .counter{
+    color: #333;
+    /* display: none; */
+    font-weight: 500;
+    margin-right: 15px;
+    padding-right: 15px;
+    border-right: 1px solid #aab8c2;
+}
+.bottom button{
+    padding: 9px 18px;
+    border: none;
+    outline: none;
+    border-radius: 50px;
+    font-size: 16px;
+    font-weight: 700;
+    background: #1da1f2;
+    color: #fff;
+    cursor: pointer;
+    opacity: 0.5;
+    pointer-events: none;
+    transition: background 0.2s ease;
+}
+.bottom button.active{
+    opacity: 1;
+    pointer-events: auto;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.red {
+    color:red !important;
+}
+textarea {
+    resize: none;
+}
