@@ -2,27 +2,34 @@
 
 class UserSession
 {
-
-    public $conn;
-    public $token;
-    public $uid;
-    public $data;
     /**
      * This function will return a session ID if username and password is correct.
      *
      * @return SessionID
      */
-    public static function authenticate($user, $pass)
+
+    public $data;
+    public $id;
+    public $conn;
+    public $token;
+    public $uid;
+
+    public static function authenticate($user, $pass, $fingerprint=null)
     {
-        //Rename login function
+        if($fingerprint == null) {
+            $fingerprint = $_COOKIE['fingerprint'];
+        }
+        if($fingerprint == null) {
+            throw new Exception("Fingerprint is null");
+        }
         $username = User::login($user, $pass);
         if ($username) {
             $user = new User($username);
             $conn = Database::getConnection();
             $ip = $_SERVER['REMOTE_ADDR'];
             $agent = $_SERVER['HTTP_USER_AGENT'];
-            $fingerprint = $_POST['fingerprint'];
-            $token = md5(rand(0, 9999999) . $ip . $agent . time());
+
+            $token = md5(random_int(0, 9999999) . $ip . $agent . time());
             $sql = "INSERT INTO `session` (`uid`, `token`, `login_time`, `ip`, `user_agent`, `active`, `fingerprint`)
             VALUES ('$user->id', '$token', now(), '$ip', '$agent', '1', '$fingerprint')";
             if ($conn->query($sql)) {
@@ -54,7 +61,7 @@ class UserSession
                 if ($session->isValid() and $session->isActive()) {
                     if ($_SERVER['REMOTE_ADDR'] == $session->getIP()) {
                         if ($_SERVER['HTTP_USER_AGENT'] == $session->getUserAgent()) {
-                            if ($session->getFingerprint() == $_SESSION['fingerprint']) {
+                            if ($session->getFingerprint() == $_COOKIE['fingerprint']) { //TODO: This is always true, fix it
                                 Session::$user = $session->getUser();
                                 return $session;
                             } else {
@@ -112,15 +119,20 @@ class UserSession
      */
     public function isValid()
     {
+        if($_COOKIE['fingerprint'] == $this->getFingerprint()) {
+            return true;
+        } else {
+            return false;
+        }
         if (isset($this->data['login_time'])) {
             $login_time = DateTime::createFromFormat('Y-m-d H:i:s', $this->data['login_time']);
-            if (604800 > time() - $login_time->getTimestamp()) {
+            if (3600 > time() - $login_time->getTimestamp()) {
                 return true;
             } else {
                 return false;
             }
         } else {
-            throw new Exception("login tiem is null");
+            throw new Exception("login time is null");
         }
     }
 

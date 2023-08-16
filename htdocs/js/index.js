@@ -119,25 +119,50 @@ $(document).ready(function() {
 
 
 
-// Auto reload image js
-// const btn = document.getElementById('btn');
 
-// document.addEventListener("DOMContentLoaded", function() {
-// const image = document.getElementById('dream');
 
-// const refreshEveryMS = 2000;
 
-// setInterval(() => {
-//   if (!image.src.includes('?')) {
-//     image.src = `${image.src}?${Date.now()}`;
-//     $('#dream').load(document.URL +  '/');
-//   } else {
-//     image.src = image.src.slice(0, image.src.indexOf('?') + 1) + Date.now();
-//     $('#dream').load(document.URL +  '/');
-//   }
 
-//   console.log('image refreshed');
+$('#dell').on('click', function(){
+    post_id = $(this).parent().attr('data-id');
+    d = new Dialog("Delete Post", "Are you sure want to delete this post");
+    d.setButtons([
+        {
+            'name': "Delete",
+            "class": "btn-danger",
+            "onClick": function(event){
+                console.log(`Assume this post ${post_id} is deleted`);
+                // $(`#post-${post_id}`).remove();
+                
+                $.post('/api/posts/delete',
+                {
+                    id: post_id
+                }, function(data, textSuccess, xhr){
+                    console.log(textSuccess);
+                    console.log(data);
 
-//   console.log(image.src);
-// }, refreshEveryMS);
-// });
+                    if(textSuccess =="success" ){ //means 200
+                        $(`#post-${post_id}`).remove();
+                    }
+                });
+
+                $(event.data.modal).modal('hide')
+            }
+        },
+        {
+            'name': "Cancel",
+            "class": "btn-secondary",
+            "onClick": function(event){
+                $(event.data.modal).modal('hide');
+            }
+        }
+    ]);
+    d.show();
+});
+
+$.post('/api/posts/count', {
+    id: 10
+}, function(data) {
+    console.log(data);
+    $('#total-posts').html("Total Posts: " + data.count);
+});

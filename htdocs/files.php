@@ -2,7 +2,7 @@
 
 include 'libs/load.php';
 // session_cache_limiter('none');
-$upload_path = get_config('dream_path');
+$upload_path = get_config('upload_path');
 $fname = $_GET['name'];
 $image_path = $upload_path . $fname;
 // echo $image_path;

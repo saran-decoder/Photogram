@@ -64,13 +64,12 @@ class Session
      * @param string $owner
      * @return boolean
      */
-
     public static function isOwnerOf($owner){
-        $session_user = Session::getUser();
-        if($session_user){
-            if($session_user->getUsername() == $owner){
+        $sess_user = Session::getUser();
+        if($sess_user){
+            if($sess_user->getUsername() == $owner){
                 return true;
-            } else {
+            }else{
                 return false;
             }
         } else {
@@ -81,7 +80,6 @@ class Session
 
     public static function loadTemplate($name)
     {
-        // die($_SERVER['DOCUMENT_ROOT'] . get_config('base_path') . "_templates/$name.php");
         $script = $_SERVER['DOCUMENT_ROOT'] . get_config('base_path'). "_templates/$name.php";
         if (is_file($script)) {
             include $script;
