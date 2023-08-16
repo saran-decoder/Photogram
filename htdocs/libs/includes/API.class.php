@@ -25,7 +25,7 @@ class API extends REST
             $this->$func();
         } else {
             if (isset($_GET['namespace'])) {
-                $dir = $_SERVER['DOCUMENT_ROOT'].'libs/api/'.$_GET['namespace'];
+                $dir = $_SERVER['DOCUMENT_ROOT'].'/libs/api/'.$_GET['namespace'];
                 $file = $dir.'/'.$request.'.php';
                 if (file_exists($file)) {
                     include $file;
@@ -46,6 +46,13 @@ class API extends REST
         return Session::isAuthenticated();
     }
 
+    public function about()
+    {
+        $this->response($this->json([
+            'message'=>"Ippo work aguthu"
+        ]), 200);
+    }
+
     /**
      * @param $param Http Parameters
      * Checks if all supplied parameters exists
@@ -59,10 +66,6 @@ class API extends REST
             }
         }
         return $exists;
-    }
-
-    public function about(){
-        $this->response($this->json(["Message" =>"success"]),200);
     }
 
     public function isAuthenticatedFor(User $user)

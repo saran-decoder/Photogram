@@ -7,8 +7,9 @@ class User
 {
     use SQLGetterSetter;
     private $conn;
-    public $username;
+
     public $id;
+    public $username;
     public $table;
 
     public static function signup($user, $pass, $email, $phone)
@@ -41,7 +42,7 @@ class User
 
     public static function login($user, $pass)
     {
-        $query = "SELECT * FROM `auth` WHERE `username` = '$user'";
+        $query = "SELECT * FROM `auth` WHERE `username` = '$user' OR `email` = '$user' OR `phone` = '$user'";
         // print($query);
         $conn = Database::getConnection();
         $result = $conn->query($query);
@@ -68,10 +69,11 @@ class User
     {
         //TODO: Write the code to fetch user data from Database for the given username. If username is not present, throw Exception.
         $this->conn = Database::getConnection();
+        //TODO: Change this if username param is an email
         $this->username = $username;
         $this->id = null;
         $this->table = 'auth';
-        $sql = "SELECT `id` FROM `auth` WHERE `username`= '$username' OR `id` = '$username' LIMIT 1";
+        $sql = "SELECT `id` FROM `auth` WHERE `username`= '$username' OR `id` = '$username' OR `email` = '$username' LIMIT 1";
         $result = $this->conn->query($sql);
         if ($result->num_rows) {
             $row = $result->fetch_assoc();
@@ -91,22 +93,7 @@ class User
     }
 
 
-    // public function user_check()
-    // {
-    //     $conn = Database::getConnection();
-    //     $query = mysql_query("SELECT `username` FROM `auth` WHERE `username` = $username", $conn);
 
-	// 	if (mysql_num_rows($query) != 0)
-	// 	{
-	// 		echo "Username already exists";
-	// 	}
-
-	// 	else
-	// 	{
-	// 		echo "successfully";
-	// 	}
-    // }
-                    
     // public function getUsername()
     // {
     //     return $this->username;

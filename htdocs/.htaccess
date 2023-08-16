@@ -8,8 +8,7 @@ ErrorDocument 500 "<H1>Some error, contact administrator</H1>"
 RewriteEngine On
 RewriteBase /
 
-RewriteRule ^/?posts/([^/]+)?$ posts.php?name=$1 [L,QSA,NC]
-RewriteRule ^/?dreams/([^/]+)?$ dreams.php?name=$1 [L,QSA,NC]
+RewriteRule ^/?files/([^/]+)?$ files.php?name=$1 [L,QSA,NC]
 
 RewriteRule ^/?api/([^/]+)?$ api.php?rquest=$1 [L,QSA,NC]
 RewriteRule ^/?api/([^/]+)/(.+)?$ api.php?rquest=$2&namespace=$1 [L,QSA,NC]

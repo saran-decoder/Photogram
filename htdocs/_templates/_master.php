@@ -36,9 +36,9 @@
 	<script src="<?=get_config('base_path')?>assets/dist/js/bootstrap.bundle.min.js"></script>
 	<script src="<?=get_config('base_path')?>assets/dist/js/jquery-3.6.3.min.js"></script>
 
-	<script src="/js/ad.js"></script>
+	<!-- <script src="/js/ad.js"></script> -->
 	<script src="/js/toast.js"></script>
-	<script src="./js/dialog.js"></script>
+	<script src="/js/dialog.js"></script>
 
 	<script src="./js/index.js"></script>
 	<script src="./js/script.js"></script>
