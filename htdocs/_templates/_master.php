@@ -53,8 +53,10 @@
 			.then(result => {
 				// This is the visitor identifier:
 				const visitorId = result.visitorId
-				console.log(visitorId)
-				$('#fingerprint').val(visitorId);
+				// console.log(visitorId)
+				// $('#fingerprint').val(visitorId);
+				// set a cookie 
+				setCookie('fingerprint', visitorId, 1);
 			})
 	</script>
 

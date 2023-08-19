@@ -1,40 +1,43 @@
 <?php
 
-$login_page = true;
+    $login_page = true;
 
-//TODO: Redirect to a requested URL instead of base path on login_page
-if (isset($_POST['email_address']) and isset($_POST['password'])) {
-    $email_address = $_POST['email_address'];
-    $password = $_POST['password'];
+    //TODO: Redirect to a requested URL instead of base path on login_page
+    if (isset($_POST['email_address']) and isset($_POST['password'])) {
+        $email_address = $_POST['email_address'];
+        $password = $_POST['password'];
 
-    $result = UserSession::authenticate($email_address, $password);
-    $login_page = false;
-}
+        $result = UserSession::authenticate($email_address, $password);
+        $login_page = false;
+    }
 
-if (!$login_page) {
-    if ($result) {
-        $should_redirect = Session::get('_redirect');
-        $redirect_to = get_config('base_path');
-        if (isset($should_redirect)) {
-            $redirect_to = $should_redirect;
-			Session::set('_redirect', false);
-		}
-        ?>
+    if (!$login_page) {
+        if ($result) {
+            $should_redirect = Session::get('_redirect');
+            $redirect_to = get_config('base_path');
+            if (isset($should_redirect)) {
+                $redirect_to = $should_redirect;
+                Session::set('_redirect', false);
+            }
+?>
+
 <script>
 	window.location.href = "<?=$redirect_to?>"
 </script>
 
 <?php
     } else {
-		?>
-		<script>
-			window.location.href = "/login.php?error=1"
-		</script>
-		
-		<?php
+?>
+
+<script>
+	window.location.href = "/login.php?error=1"
+</script>
+
+<?php
     }
-} else {
-    ?>
+    } else {
+?>
+
 
 <main class="card-container slideUp-animation">
     <div class="image-container">
@@ -56,7 +59,7 @@ if (!$login_page) {
         <div class="login-form">      
 			<form method="post" action="/">
 				<div class="login-form-inner">
-                    <input name="fingerprint" type="hidden" id="fingerprint" value="">
+                    <!-- <input name="fingerprint" type="hidden" id="fingerprint" value=""> -->
         	        <h1><div class="logo">
                         <svg height="512" viewBox="0 0 192 192" width="512" xmlns="http://www.w3.org/2000/svg">
                             <path d="m155.109 74.028a4 4 0 0 0 -3.48-2.028h-52.4l8.785-67.123a4.023 4.023 0 0 0 -7.373-2.614l-63.724 111.642a4 4 0 0 0 3.407 6.095h51.617l-6.962 67.224a4.024 4.024 0 0 0 7.411 2.461l62.671-111.63a4 4 0 0 0 .048-4.027z"></path>

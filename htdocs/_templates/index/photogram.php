@@ -23,11 +23,11 @@
                                         <a class="text-decoration-none text-capitalize" style="font-variant: petite-caps; color: var(--text-color);"><?=$p->getOwner()?></a>
                                         <small class="text-muted" style="color: var(--timer-color) !important; font-size: x-small;"><?=$uploaded_time_str?></small>
                                     </strong>
-									<div class="btn-group dropdown show" data-id="<?=$post['id']?>">
+									<div class="btn-group" data-id="<?=$post['id']?>">
 										<?php
 											if (Session::isOwnerOf($p->getOwner())) {
 										?>
-											<button class="btn p-0 mb-1 text btn-delete" type="button" style="margin-left: 0rem; border: none;">
+											<button id="dell" class="btn p-0 mb-1 text btn-delete" type="button" style="margin-left: 0rem; border: none;">
 												<svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" fill="currentColor" class="bi bi-three-dots-vertical" viewBox="0 0 16 16">
 													<path d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"></path>
 												</svg>

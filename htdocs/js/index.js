@@ -108,6 +108,9 @@ $(document).ready(function(){
     });    
 });
 
+
+
+
 $(document).ready(function() {
     $('#post').click(function() {
         $(this).html('<div class="spinner-grow text-primary"></div>');

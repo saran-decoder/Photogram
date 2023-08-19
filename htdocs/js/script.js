@@ -56,48 +56,15 @@ function resetTheme() {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// //
-// $.post('/api/posts/count', {
-//     id: 10
-// }, function(data) {
-//     console.log(data);
-//     $('#total-posts').html("Total posts: " + data.count);
-// });
-
-// $(document).ready(function(){
-//     // $('#fileupload').redy('click', function(){
-//     //     d = new Dialog("Upload Post", "Are you sure want to remove this post");
-//     //     d.setButtons([
-//     //         {
-//     //             'name': "Upload",
-//     //             "class": "btn-success",
-//     //             "type": "submit",
-//     //             "onClick": "submit"
-//     //         },
-//     //         {
-//     //             'name': "Cancel",
-//     //             "class": "btn-secondary",
-//     //             "onClick": function(event){
-//     //                 $(event.data.modal).modal('hide');
-//     //             }
-//     //         }
-//     //     ]);
-//     //     d.show();
-//     // });
-//     dialog("Notify", "Page finished loading");
-// });
+// Function to set a cookie
+function setCookie(name, value, daysToExpire) {
+    var expires = "";
+    
+    if (daysToExpire) {
+      var date = new Date();
+      date.setTime(date.getTime() + (daysToExpire * 24 * 60 * 60 * 1000));
+      expires = "; expires=" + date.toUTCString();
+    }
+  
+    document.cookie = name + "=" + value + expires + "; path=/";
+}  
