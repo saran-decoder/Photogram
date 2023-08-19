@@ -17,6 +17,39 @@ $.post('/api/posts/count', {
     $('#total-posts').html("Total posts: " + data.count);
 });
 
+// Function to set a cookie
+function setCookie(name, value, daysToExpire) {
+  var expires = "";
+  
+  if (daysToExpire) {
+    var date = new Date();
+    date.setTime(date.getTime() + (daysToExpire * 24 * 60 * 60 * 1000));
+    expires = "; expires=" + date.toUTCString();
+  }
+
+  document.cookie = name + "=" + value + expires + "; path=/";
+}
+
+$('.btn-like').on('click', function(){
+    post_id = $(this).parent().attr('data-id');
+    $this = $(this);
+    $(this).html() == "Like" ? $(this).html("Liked") : $(this).html("Like");
+    $(this).hasClass('btn-outline-primary') ? $(this).removeClass('btn-outline-primary').addClass('btn-primary') : $(this).removeClass('btn-primary').addClass('btn-outline-primary');
+    $.post('/api/posts/like', {
+        id: post_id
+    }, function(data, textSuccess, xhr){
+        if(textSuccess == "success"){
+            if(data.liked){
+                $($this).html("Liked");
+                $($this).removeClass('btn-outline-primary').addClass('btn-primary');
+            } else {
+                $($this).html("Like");
+                $($this).removeClass('btn-primary').addClass('btn-outline-primary');
+            }
+        }
+    });
+});
+
 $('.btn-delete').on('click', function(){
     post_id = $(this).parent().attr('data-id');
     d = new Dialog("Delete Post", "Are you sure want to remove this post");

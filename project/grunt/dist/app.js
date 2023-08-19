@@ -1,4 +1,4 @@
-/*Processed by SNA Labs on 28/12/2022 @ 15:54:29*/
+/*Processed by SNA Labs on 31/5/2023 @ 17:34:15*/
 // init Masonry
 var $grid = $('#masonry-area').masonry({
     // itemSelector: '.col',
@@ -16,6 +16,39 @@ $.post('/api/posts/count', {
 }, function(data) {
     console.log(data);
     $('#total-posts').html("Total posts: " + data.count);
+});
+
+// Function to set a cookie
+function setCookie(name, value, daysToExpire) {
+  var expires = "";
+  
+  if (daysToExpire) {
+    var date = new Date();
+    date.setTime(date.getTime() + (daysToExpire * 24 * 60 * 60 * 1000));
+    expires = "; expires=" + date.toUTCString();
+  }
+
+  document.cookie = name + "=" + value + expires + "; path=/";
+}
+
+$('.btn-like').on('click', function(){
+    post_id = $(this).parent().attr('data-id');
+    $this = $(this);
+    $(this).html() == "Like" ? $(this).html("Liked") : $(this).html("Like");
+    $(this).hasClass('btn-outline-primary') ? $(this).removeClass('btn-outline-primary').addClass('btn-primary') : $(this).removeClass('btn-primary').addClass('btn-outline-primary');
+    $.post('/api/posts/like', {
+        id: post_id
+    }, function(data, textSuccess, xhr){
+        if(textSuccess == "success"){
+            if(data.liked){
+                $($this).html("Liked");
+                $($this).removeClass('btn-outline-primary').addClass('btn-primary');
+            } else {
+                $($this).html("Like");
+                $($this).removeClass('btn-primary').addClass('btn-outline-primary');
+            }
+        }
+    });
 });
 
 $('.btn-delete').on('click', function(){
@@ -58,46 +91,48 @@ $('.btn-delete').on('click', function(){
 
 
 
-$(document).ready(function(){
-    $('#exampleModal').on('show.bs.modal', function(){
-        console.log("Modal is being shown");
-    });
+// $(document).ready(function(){
+//     dialog("Notify", "Page finished loading");
 
-    $('#exampleModal').on('shown.bs.modal', function(){
-        console.log("Modal has been shown");
-    });
+//     $('#exampleModal').on('show.bs.modal', function(){
+//         console.log("Modal is being shown");
+//     });
 
-    $('#exampleModal').on('hide.bs.modal', function(){
-        console.log("Modal is being hidden");
-    });
+//     $('#exampleModal').on('shown.bs.modal', function(){
+//         console.log("Modal has been shown");
+//     });
 
-    $('#exampleModal').on('hidden.bs.modal', function(){
-        console.log("Modal is hidden");
-    });
+//     $('#exampleModal').on('hide.bs.modal', function(){
+//         console.log("Modal is being hidden");
+//     });
 
-    $('#exampleModal').on('mouseover', function(){
-        console.log("Mouse is over this button");
-    });
+//     $('#exampleModal').on('hidden.bs.modal', function(){
+//         console.log("Modal is hidden");
+//     });
 
-    $('#textbox').on('keydown', function(event){
-        console.log(event.originalEvent.key + " Key is pressed")
-    });
+//     $('#exampleModal').on('mouseover', function(){
+//         console.log("Mouse is over this button");
+//     });
 
-    $('#textbox').on('keyup', function(event){
-        console.log(event.originalEvent.key + " Key is released")
-    });
+//     $('#textbox').on('keydown', function(event){
+//         console.log(event.originalEvent.key + " Key is pressed")
+//     });
 
-    $('#liveToastBtn').click(function(){
-        var el = $('#liveToast');
-        new bootstrap.Toast(el).show();
-    });
+//     $('#textbox').on('keyup', function(event){
+//         console.log(event.originalEvent.key + " Key is released")
+//     });
 
-    $('#fetchModal').on('click', function(){
-        $.get('/api/demo/modal', function(data, textStatus){
-            $('main#mainel').append(data);
-        });
-    });
+//     $('#liveToastBtn').click(function(){
+//         var el = $('#liveToast');
+//         new bootstrap.Toast(el).show();
+//     });
+
+//     $('#fetchModal').on('click', function(){
+//         $.get('/api/demo/modal', function(data, textStatus){
+//             $('main#mainel').append(data);
+//         });
+//     });
 
     
-});
+// });
 //# sourceMappingURL=app.js.map
