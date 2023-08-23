@@ -109,8 +109,7 @@ $(document).ready(function(){
 });
 
 
-
-
+// This is the post upload button spinner
 $(document).ready(function() {
     $('#post').click(function() {
         $(this).html('<div class="spinner-grow text-primary"></div>');
@@ -121,11 +120,15 @@ $(document).ready(function() {
 });
 
 
+// This is the post dropdown menu toggleclass jquery
+$(document).ready(function() {
+    $('.btn-group').click(function() {
+      $('.dropdown-menu-left').toggleClass('show');
+    });
+});
 
 
-
-
-
+// This is user post delete jquery api calling
 $('#dell').on('click', function(){
     post_id = $(this).parent().attr('data-id');
     d = new Dialog("Delete Post", "Are you sure want to delete this post");
@@ -135,7 +138,6 @@ $('#dell').on('click', function(){
             "class": "btn-danger",
             "onClick": function(event){
                 console.log(`Assume this post ${post_id} is deleted`);
-                // $(`#post-${post_id}`).remove();
                 
                 $.post('/api/posts/delete',
                 {
@@ -163,6 +165,7 @@ $('#dell').on('click', function(){
     d.show();
 });
 
+// This is called api and fetch total post count
 $.post('/api/posts/count', {
     id: 10
 }, function(data) {

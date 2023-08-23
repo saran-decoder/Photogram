@@ -18,7 +18,7 @@
 :root{
     /* Colors */
     --body-color: #fff;
-    --bg-body-color: #d3d3d32b;
+    --bg-body-color: #e9ecef;
     --box-border-color: #999;
     --text-color: #000;
     --timer-color: #999;
@@ -52,18 +52,17 @@ body{
 
 /* Started Navbar */
 .rs-navbar {
-    background: var(--body-color);
-    box-shadow: 0 0 1px var(--box-border-color);
     /* Mrs-CSS */
-    height: 3.4rem !important;
+    height: 3rem !important;
     z-index: 1;
 }
 
 /* Mrs-CSS */
 .menu-links {
-    bottom: 0;
-    left: 0;
-    right: 0;
+    bottom: 10px;
+    left: 20px;
+    border-radius: 2rem;
+    right: 20px;
     box-shadow: 0 0 1px var(--box-border-color);
     background: var(--body-color);
 
@@ -75,27 +74,22 @@ span.fs-4.hidden-text.text {
 }
 
 /* Mrs-CSS */
-.notify {
-    top: 4px;
-    right: 10%;
-}
-
-/* Mrs-CSS */
 .profile {
-    top: 4px;
-    right: 0;
+    top: -2px;
+    width: 3rem;
+    border-radius: 0 0 2rem 2rem;
+    background: var(--body-color);
+    box-shadow: 0 0 1px var(--box-border-color);
 }
 
 
 /* Reusable code - Here */
 .sidebar li{
     height: 50px;
-    margin-right: 1rem;
 }
 
 .sidebar .icon{
-    min-width: 60px;
-    border-radius: 6px;
+    border-radius: 2rem;
 }
 
 .sidebar .text,
@@ -109,6 +103,7 @@ span.fs-4.hidden-text.text {
     border-radius: 2rem;
     transition: var(--tran-03);
     cursor: pointer;
+    justify-content: center;
 }
 
 .sidebar li a:hover{
@@ -229,9 +224,22 @@ body.dark .text{
         margin-right: 30rem;
     }
 
+    .sidebar li a {
+        justify-content: start !important;
+    }
+
+    li.nav-link.d-none.align-items-center.dropup {
+        width: 184px !important;
+    }
+
+    .text.nav-link.d-none.align-items-center.mt-1 {
+        display: flex !important;
+    }
+
     i.p-0.icon {
         background: none !important;
         color: var(--text-color) !important;
+        width: 3rem;
     }
 
     .sidebar .nav-link {
@@ -282,6 +290,23 @@ body.dark .text{
         border-radius: 0.375rem !important;
     }
 
+    .rs-navbar {
+        background: var(--body-color);
+        box-shadow: 0 0 1px var(--box-border-color);
+    }
+
+    .profile {
+        top: -2px;
+        width: auto;
+        border-radius: 0;
+        background: none;
+        box-shadow: none;
+    }
+
+    .col.col-10.p-0.w-100.mt-0 {
+        margin-top: 3rem !important;
+    }
+
     .sidebar li a:hover{
         background-color: 0 !important;
     }
@@ -295,7 +320,19 @@ body.dark .text{
     }
 
     .sidebar li a {
+        justify-content: center;
         margin-right: 0px !important;
+    }
+
+    .text.nav-link.d-none.align-items-center.mt-1 {
+        display: flex !important;
+        justify-content: center;
+    }
+
+    li.nav-link.d-none.align-items-center.dropup {
+        display: flex !important;
+        bottom: 20px;
+        width: 41px;
     }
 
     /* Non-Mrs-CSS */
@@ -333,6 +370,7 @@ body.dark .text{
     li.nav-link {
         margin-top: 50% !important;
         margin-right: auto !important;
+        margin-left: auto !important;
     }
 
     /* Non-Mrs-CSS */
@@ -347,6 +385,7 @@ body.dark .text{
 
     /* Non-Mrs-CSS */
     .text.d-flex.align-items-center.mt-1 {
+        justify-content: center;
         margin-top: auto !important;
     }
 
@@ -367,11 +406,6 @@ body.dark .text{
     .prev-btn {
         display: block !important;
         margin-top: 1.5rem !important;
-    }
-
-    /* Non-Mrs-CSS */
-    .notify {
-        position: inherit !important;
     }
 
     /* Non-Mrs-CSS */

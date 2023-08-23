@@ -9,7 +9,7 @@
 
 	<!-- Bootstrap core CSS -->
 	<link href="<?=get_config('base_path')?>assets/dist/css/bootstrap.min.css" rel="stylesheet">
-	<link href="<?=get_config('base_path')?>assets/dist/css/font-awesome.min.css" rel="stylesheet">
+	<!-- <link href="< ?=get_config('base_path')?>assets/dist/css/font-awesome.min.css" rel="stylesheet"> -->
 
 	<!-- JS has to be loaded in footer not header as it impacts page load time. -->
 

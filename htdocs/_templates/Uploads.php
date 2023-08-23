@@ -41,8 +41,8 @@ if (isset($_POST['post_text']) and isset($_FILES['post_image'])) {
 
                             <input type="file" accept="image/*" name="post_image" class="custom-file-input file form__file" id="chooseFile" multiple required>
                         </div>
-                        <div class="field field_btns px-4 m-0">
-                            <a class="firstClose close" id="upclose">Close</a>
+                        <div class="field field_btns px-3 m-0">
+                            <a href="/" class="firstClose close" id="upclose">Close</a>
                             <button type="submit" name="submit" id="post" class="submit justify-content-around align-items-center next" style="display: none;">Post</button>
                         </div>
                     </div>
