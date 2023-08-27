@@ -67,7 +67,7 @@ module.exports = function(grunt){
                 banner: '// obfuscated with grunt-contrib-obfuscator.\n',
                 debugProtection: true,
                 debugProtectionInterval: true,
-                domainLock: ['project.selfmade.lol']
+                domainLock: ['photogram.saran.com']
             },
             task1: {
                 options: {

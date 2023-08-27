@@ -32,16 +32,16 @@
 
 	</body>
 
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"></script>
 	<script src="<?=get_config('base_path')?>assets/dist/js/bootstrap.bundle.min.js"></script>
 	<script src="<?=get_config('base_path')?>assets/dist/js/jquery-3.6.3.min.js"></script>
 
-	<!-- <script src="/js/ad.js"></script> -->
-	<script src="/js/toast.js"></script>
+	<script src="/js/app.min.js"></script>
+	<!-- <script src="/js/toast.js"></script>
 	<script src="/js/dialog.js"></script>
 
 	<script src="./js/index.js"></script>
-	<script src="./js/script.js"></script>
+	<script src="./js/script.js"></script> -->
 	<script>
 		// Initialize the agent at application startup.
 		const fpPromise = import('https://openfpcdn.io/fingerprintjs/v3')

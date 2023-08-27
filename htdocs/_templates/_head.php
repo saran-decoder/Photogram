@@ -13,12 +13,12 @@
 
 	<!-- JS has to be loaded in footer not header as it impacts page load time. -->
 
-	<?php if (file_exists($_SERVER['DOCUMENT_ROOT'] .get_config('base_path').'css/' . basename($_SERVER['PHP_SELF'], ".php") . ".css")) { ?>
-		<link href="<?=get_config('base_path')?>css/<?= basename($_SERVER['PHP_SELF'], ".php") ?>.css" rel="stylesheet">
-	<?php } ?>
+	<!-- < ?php if (file_exists($_SERVER['DOCUMENT_ROOT'] .get_config('base_path').'css/' . basename($_SERVER['PHP_SELF'], ".php") . ".css")) { ?>
+		<link href="< ?=get_config('base_path')?>css/< ?= basename($_SERVER['PHP_SELF'], ".php") ?>.css" rel="stylesheet">
+	< ?php } ?> -->
 
-	<link rel="stylesheet" href="../css/index.css">
+	<!-- <link rel="stylesheet" href="../css/index.css"> -->
 	<link rel="stylesheet" href="../css/style.css">
-	<link rel="stylesheet" href="../css/logreg.css">
+	<!-- <link rel="stylesheet" href="../css/logreg.css"> -->
 
 </head>

@@ -21,17 +21,21 @@ class User
         $conn = Database::getConnection();
         $sql = "INSERT INTO `auth` (`username`, `password`, `email`, `phone`)
         VALUES ('$user', '$pass', '$email', '$phone');";
-
-
-        //PHP 7.4 -
-        // if ($conn->query($sql) === true) {
-        //     $error = false;
-        // } else {
-        //     // echo "Error: " . $sql . "<br>" . $conn->error;
-        //     $error = $conn->error;
-        // }
-
         //PHP 8.1 - all MySQLi errors are throws as Exceptions
+        try {
+            return $conn->query($sql);
+        } catch (Exception $e) {
+            echo "Error: " . $sql . "<br>" . $conn->error;
+            return false;
+        }
+    }
+
+    public static function def_profile($user)
+    {
+        $conn = Database::getConnection();
+        $avatar = "/ava/avatar.jpg";
+        $sql = "INSERT INTO `users` (`userid`, `bio`, `avatar`, `gender`, `dob`, `links`, `owner`)
+        VALUES ('', '', '$avatar', '', now(), '', '$user');";
         try {
             return $conn->query($sql);
         } catch (Exception $e) {

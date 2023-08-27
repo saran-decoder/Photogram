@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "grunt": "cd /home/sibidharan/htdocs/photogram/project/grunt && grunt"
+    "grunt": "cd /var/www/html/photogram/project/grunt && grunt"
   },
   "author": "",
   "license": "ISC",

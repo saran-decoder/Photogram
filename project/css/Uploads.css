@@ -12,9 +12,7 @@
     flex-direction: column;
     align-items: center;
 }
-nav.navbar.w-100.h-100.p-2.position-fixed.rs-navbar.sidebar {
-    display: none;
-}
+
 .field_btns {
     background: var(--body-color);
     box-shadow: 0 0 1px var(--box-border-color);

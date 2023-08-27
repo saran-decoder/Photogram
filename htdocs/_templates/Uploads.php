@@ -10,6 +10,12 @@ if (isset($_POST['post_text']) and isset($_FILES['post_image'])) {
 
 ?>
 
+<style>
+    nav.navbar.w-100.h-100.p-2.position-fixed.rs-navbar.sidebar {
+        display: none;
+    }
+</style>
+
 <div class="container card-body">
     <div class="upload p-0">
         <div class="form-outer">

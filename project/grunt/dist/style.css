@@ -1,3 +1,1218 @@
-/*Processed by SNA Labs on 31/5/2023 @ 17:34:15*/
+/*Processed by SNA Labs on 26/8/2023 @ 17:36:34*/
+/**
+* This UI/UX Project is Complected and
+* Mrs min by Mobile Responsive Than
+* Some Plays I'am Writed Mrs CommandLine
+* And Also Mobile Responsive Scrollbar is Not Fixed Some CSS issus and After Rafar Google and I'am Fix...
+*/
 
+/* TODO: Saran Fix The Mobile Responsive Scrollbar CSS */
+
+/* Started CSS Body */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+:root{
+    /* Colors */
+    --body-color: #fff;
+    --bg-body-color: #e9ecef;
+    --box-border-color: #999;
+    --text-color: #000;
+    --timer-color: #999;
+    --more-color: #e9ecef;
+
+    /* Transition */
+    --tran-03: all 0.2s ease;
+    --tran-03: all 0.3s ease;
+    --tran-04: all 0.3s ease;
+    --tran-05: all 0.3s ease;
+}
+
+body.dark{
+    --body-color: #000;
+    --bg-body-color: #18191a;
+    --box-border-color: #fff;
+    --text-color: #fff;
+    --timer-color: #999;
+    --more-color: #999;
+}
+
+body{
+    min-height: 100vh;
+    background-color: var(--bg-body-color);
+    transition: var(--tran-05);
+    padding-right: 0px !important;
+    overflow: auto !important;
+}
+/* Ending CSS Body */
+
+
+/* Started Navbar */
+.rs-navbar {
+    /* Mrs-CSS */
+    height: 3rem !important;
+    z-index: 1;
+}
+
+/* Mrs-CSS */
+.menu-links {
+    bottom: 20px;
+    left: 20px;
+    border-radius: 2rem;
+    right: 20px;
+    box-shadow: 0 0 1px var(--box-border-color);
+    background: var(--body-color);
+
+}
+
+/* Mrs-CSS */
+span.fs-4.hidden-text.text {
+    display: block;
+}
+
+/* Mrs-CSS */
+.profile {
+    top: -2px;
+    width: 3rem;
+    border-radius: 0 0 2rem 2rem;
+    background: var(--body-color);
+    box-shadow: 0 0 1px var(--box-border-color);
+}
+
+
+/* Reusable code - Here */
+.sidebar li{
+    height: 50px;
+}
+
+.sidebar .icon{
+    border-radius: 2rem;
+}
+
+.sidebar .text,
+.sidebar .icon{
+    color: var(--text-color);
+    transition: var(--tran-03);
+    text-transform: none;
+}
+
+.sidebar li a{
+    border-radius: 2rem;
+    transition: var(--tran-03);
+    cursor: pointer;
+    justify-content: center;
+}
+
+.sidebar li a:hover{
+    background-color: none;
+}
+
+body.dark .sidebar li a:hover .icon,
+body.dark .sidebar li a:hover .text{
+    color: var(--text-color);
+}
+
+/* This is The Full Page Light Mode and Dark Mode CSS */
+.sidebar .mode{
+    border-radius: 6px;
+    background-color: var(--body-color);
+    transition: var(--tran-05);
+}
+
+.sidebar .bottom-content,
+.sidebar .bottom-content hr.m-0{
+    background-color: var(--body-color);
+    transition: var(--tran-03);
+    box-shadow: 0 0 1px var(--more-color);
+}
+
+.mode .sun-moon{
+    height: 35px;
+    width: 60px;
+}
+
+.mode .sun-moon i.sun{
+    opacity: 0;
+}
+
+body.dark .mode .sun-moon i.sun{
+    opacity: 1;
+}
+
+body.dark .mode .sun-moon i.moon{
+    opacity: 0;
+}
+
+.bottom-content .toggle-switch{
+    min-width: 60px;
+    cursor: pointer;
+}
+
+.toggle-switch .switch{
+    height: 22px;
+    width: 40px;
+    border-radius: 25px;
+    cursor: pointer;
+    background-color: var(--box-border-color);
+    transition: var(--tran-05);
+}
+
+.switch::before{
+    content: '';
+    position: absolute;
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);
+    background-color: var(--body-color);
+    transition: var(--tran-04);
+}
+
+body.dark .switch::before{
+    left: 20px;
+}
+/* Ending The Full Page Light Mode and Dark Mode CSS */
+/* Ending The Navbar */
+
+
+/* Mobile responsive text hidden and conditions css */
+body.dark .text{
+    color: var(--text-color) !important;
+}
+
+.unc-text {
+    text-decoration: none;
+}
+
+.dropdown-toggle::after {
+    display: none !important;
+}
+/* Ending the hidden text and conditions css */
+
+
+/* Main Body and Post Image Animation CSS */
+.card {
+    border-color: var(--body-color);
+    background: var(--body-color);
+    color: var(--text-color);
+}
+
+.card-img {
+    border-radius: 1rem;
+    box-shadow: 0 20px 30px -28px rgb(0 0 0 / 88%);
+}
+/* Ending Main Body and Post Image Animation CSS */
+
+
+/* Mobile responsive media screen css */
+@media (min-width: 1200px) {
+    .list {
+        max-width: 50% !important;
+        margin-left: 15rem !important;
+    }
+}
+
+@media (min-width: 992px) {
+    .list {
+        max-width: 70%;
+        margin-left: 13rem;
+        margin-right: 30rem;
+    }
+
+    .sidebar li a {
+        justify-content: start !important;
+    }
+
+    li.nav-link.d-none.align-items-center.dropup {
+        width: 184px !important;
+    }
+
+    .text.nav-link.d-none.align-items-center.mt-1 {
+        display: flex !important;
+    }
+
+    i.p-0.icon {
+        background: none !important;
+        color: var(--text-color) !important;
+        width: 3rem;
+    }
+
+    .sidebar .nav-link {
+        margin-top: 28.8px !important;
+    }
+
+    .hidden-texts {
+        display: block !important;
+    }
+
+    .sidebar li a:hover{
+        background-color: var(--bg-body-color) !important;
+    }
+
+    /* Non-Mrs-CSS */
+    .my-3 {
+        display: block !important;
+        margin-top: auto !important;
+    }
+
+    /* Non-Mrs-CSS */
+    span.fs-4.hidden-text.text {
+        display: block !important;
+    }
+
+    .Next-btn {
+        margin-left: 26.5rem !important;
+    }
+
+}
+
+@media (min-width: 768px) {
+    .col-12 {
+        max-width: 88% !important;
+        margin-right: 2rem;
+        margin-left: 5rem;
+    }
+
+    .card {
+        margin-bottom: 1.8rem !important;
+        border-radius: 0.375rem !important;
+        box-shadow: 0 0 1px var(--box-border-color) !important;
+    }
+
+    .mt {
+        margin-top: 1.5rem !important;
+        margin-bottom: 1.8rem !important;
+        border-radius: 0.375rem !important;
+    }
+
+    .rs-navbar {
+        background: var(--body-color);
+        box-shadow: 0 0 1px var(--box-border-color);
+    }
+
+    .profile {
+        top: -2px;
+        width: auto;
+        border-radius: 0;
+        background: none;
+        box-shadow: none;
+    }
+
+    .col.col-10.p-0.w-100.mt-0 {
+        margin-top: 3rem !important;
+    }
+
+    li.nav-link.d-none.align-items-center.profile.position-fixed.me-0 {
+        display: block !important;
+    }
+
+    nav.navbar.w-100.h-100.p-2.position-fixed.rs-navbar.sidebar {
+        display: block !important;
+    }
+
+    .sidebar li a:hover{
+        background-color: 0 !important;
+    }
+
+    a.uploadround:hover {
+        background: none !important;
+    }
+
+    .hidden-texts {
+        display: none;
+    }
+
+    .sidebar li a {
+        justify-content: center;
+        margin-right: 0px !important;
+    }
+
+    .text.nav-link.d-none.align-items-center.mt-1 {
+        display: flex !important;
+        justify-content: center;
+    }
+
+    li.nav-link.d-none.align-items-center.dropup {
+        display: flex !important;
+        bottom: 20px;
+        width: 41px;
+    }
+
+    /* Non-Mrs-CSS */
+    span.fs-4.hidden-text.text {
+        display: none;
+    }
+
+    /* This is the footer image in display the Mrs */
+    .hidden-img {
+        display: none;
+    }
+
+    /* Non-Mrs-CSS */
+    .my-3 {
+        display: block !important;
+        margin-top: 16px !important;
+    }
+
+    /* Non-Mrs-CSS */
+    .rs-navbar {
+        height: 100% !important;
+        width: auto !important;
+        /* z-index: 0; */
+    }
+
+    /* Non-Mrs-CSS */
+    .menu-links {
+        display: block !important;
+        /* Non-Mrs-CSS */
+        position: inherit !important;
+        box-shadow: 0 0 0;
+    }
+
+    /* Non-Mrs-CSS */
+    li.nav-link {
+        margin-top: 50% !important;
+        margin-right: auto !important;
+        margin-left: auto !important;
+    }
+
+    /* Non-Mrs-CSS */
+    span.fs-4.hidden-text.text {
+        display: none;
+    }
+
+    /* Non-Mrs-CSS */
+    ul.bottom-content.dropdown-menu.p-2.show {
+        left: 2rem !important;
+    }
+
+    /* Non-Mrs-CSS */
+    .text.d-flex.align-items-center.mt-1 {
+        justify-content: center;
+        margin-top: auto !important;
+    }
+
+    /* Non-Mrs-CSS */
+    .card-body {
+        overflow: hidden !important;
+    }
+
+    /* Non-Mrs-CSS */
+    .Next-btn {
+        cursor: pointer !important;
+        display: block !important;
+        margin-top: 1.5rem !important;
+        margin-left: 28.2rem;
+    }
+
+    /* Non-Mrs-CSS */
+    .prev-btn {
+        display: block !important;
+        margin-top: 1.5rem !important;
+    }
+
+    /* Non-Mrs-CSS */
+    .profile {
+        position: inherit !important;
+    }
+
+}
+
+@media (min-width: 576px) {
+    /* Write Code */
+}
+/* Ending mobile responsive media screen css */
+
+
+/* Started Full Web Scrollbar Styles CSS */
+/* width */
+::-webkit-scrollbar {
+    width: auto;
+}
+
+/* Track */
+/* ::-webkit-scrollbar-track {
+    background: var(--box-border-color);
+} */
+
+/* Handle */
+/* ::-webkit-scrollbar-thumb {
+    background: var(--body-color);
+} */
+
+/* Handle on hover */
+/* ::-webkit-scrollbar-thumb:hover {
+    background: #555;
+} */
+/* Started Full Web Scrollbar Styles CSS */
+
+
+/* This is The Bootstrap Rewrite and This Don't Use CSS */
+.form-check-input:focus {
+    border-color: #fff;
+    outline: none;
+    box-shadow: 0 0 0 0;
+}
+
+.form-check-input:checked {
+    background-color: var(--box-border-color);
+    --bs-form-check-bg-image: none !important;
+    border-color: #fff;
+}
+/* Ending The Bootstrap Rewrite and This Don't Use CSS */
+/* VARIABLES ROOT */
+:root {
+    --image-bg-color: #008b8b;
+    --input-box-color: #0400ff;
+    --primary-color: rgb(2 147 0);
+    --box-border-logreg: #d6d6d6;
+    --placeholder: #969696;
+    --white: #fff;
+    --text: #373b3e;
+    --login-cta-hover: rgb(2 147 0 / 78%);
+}
+
+
+/* COMMON STYLING */
+* {
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+    font-family: 'Poppins', system-ui, 'Segoe UI', 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+
+/* ERROR PROMPTER SECTION */
+.error {
+    color: rgb(255, 51, 51);
+    font-family: sans-serif;
+    font-weight: 500;
+    text-transform: none;
+    overflow: hidden;
+    margin-top: 4px;
+}
+
+
+/* MAIN(SIGN-IN CARD) SECTION */
+.card-container {
+    display: grid;
+    grid-template-columns: calc(100% - 60%) auto;
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+}
+
+
+/* SVG STYLE CSS */
+span {
+    letter-spacing: .05em;
+    text-transform: uppercase;
+    font-size: 15px;
+    transition: all .4s;
+}
+
+
+/* IMAGE ILLUSTRATION SECTION */
+.image-container{
+    display: grid;
+    place-items: center;
+    background-color: var(--image-bg-color);
+    color: white;
+}
+.image-container > img {
+    width: calc(90%);
+}
+.company, .image-container > .quote {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    font-size: 19px;
+}
+.company {
+    font-size: 34px;
+    text-align: left;
+    height: 70px;
+    font-family: revert;
+    align-self: flex-start;
+    padding: 2% 0 0 5%;
+}
+.outro-overlay > .company{
+    position: absolute;
+    top: 0;
+}
+
+
+/* LOGIN MAIN CONTAINER */
+.login-container {
+    display: flex;
+    max-width: 1200px;
+    background: var(--white);
+    margin: auto;
+    width: 100%;
+    height: -webkit-fill-available;
+    min-width: 320px;
+}
+.login-container .login-form {
+    width: 50%;
+    box-sizing: border-box;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    flex: 1;
+    justify-content: space-around;
+}
+.login-container .login-form .login-form-inner {
+    width: 340px;
+}
+.login-container .login-form .login-form-inner h1 {
+    display: flex;
+    margin: 10px 0 20px;
+    align-items: center;
+    font-size: revert;
+}
+.login-container .logo svg {
+    height: 40px;
+    width: 40px;
+    fill: var(--primary-color);
+    vertical-align: unset;
+}
+.login-container .body-text {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text);
+}
+.login-container .rounded-button {
+    display: flex;
+    width: 100%;
+    text-decoration: none;
+    border-radius: 10px;
+    padding: 13px 20px;
+    box-sizing: border-box;
+    font-size: 14px;
+    font-weight: 500;
+    align-items: center;
+    transition: linear 0.2s;
+    justify-content: center;
+}
+.login-container .rounded-button:hover {
+    box-shadow: 0px 0px 4px 0px var(--box-border-logreg);
+}
+.login-container .other-rounded-button {
+    display: flex;
+}
+.login-container .login-form .google-login-button {
+    color: var(--text);
+    border: 1px solid var(--box-border-logreg);
+    margin: 20px 20px 0 0;
+    padding: 8px 10px !important;
+}
+.login-container .login-form .google-login-button .google-icon svg {
+    height: 30px;
+    display: flex;
+}
+.login-container .login-form .sign-in-seperator {
+    display: grid;
+    justify-items: center;
+    text-align: center;
+    color: var(--placeholder);
+    position: relative;
+    margin: 20px 0 20px;
+}
+.login-container .login-form .sign-in-seperator span {
+    background: var(--white);
+    z-index: 1;
+    position: relative;
+    padding: 0 10px;
+    font-size: 14px;
+}
+.login-container .login-form .sign-in-seperator:after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    background: var(--box-border-logreg);
+    left: 0;
+    top: 50%;
+    z-index: 0;
+}
+
+.login-container .login-form .login-form-group {
+    position: relative;
+    display: flex;
+    margin-bottom: 20px;
+    align-items: center;
+    flex-direction: row-reverse;
+}
+/* .login-container .login-form .login-form-group label .required-star {
+    color: var(--primary-color);
+    font-size: 18px;
+    line-height: 10px;
+}  
+.login-container .login-form .login-form-group label {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text);
+    margin-bottom: 10px;
+} */
+
+.input-icon {
+    position: fixed;
+    z-index: 1;
+    margin-right: 10px;
+    margin-bottom: 5px;
+    color: var(--placeholder);
+}
+
+input:focus ~ span.name-holder,
+input:valid ~ span.name-holder {
+    transform: translateX(5px) translateY(-8px);
+    font-size: 15px;
+    margin: -4px 0 0 15px;
+    padding: 0 5px 2px;
+    border-radius: 1rem;
+    background-color: #fff;
+    color: #000;
+    height: 16px;
+}
+.name-holder:not(.btm-text-highlighted) {
+    position: absolute;
+    left: 0;
+    top: 0;
+    padding: 10px 0 8px 20px;
+    color: var(--placeholder);
+    pointer-events: none;
+    text-transform: capitalize;
+}
+.login-container .login-form .login-form-group input {
+    padding: 8px 38px 10px 15px;
+    box-sizing: border-box;
+    border: 1px solid var(--box-border-logreg);
+    border-radius: 10px;
+    font-size: 18px;
+    width: 100%;
+    color: var(--text);
+    transition: linear 0.2s;
+    line-height: normal;
+    /* background: #eeeeee70; */
+}  
+.login-container .login-form .login-form-group input:focus {
+    outline: none;
+    border: 1px solid rgb(105, 105, 105);
+}  
+.login-container .login-form .login-form-group input::-webkit-input-placeholder {
+    color: var(--placeholder);
+    font-weight: 300;
+    font-size: 14px;
+}
+.login-container .login-form .login-form-group.single-row {
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-top: 5px;
+}
+/* custom checkbox */
+.login-container .login-form .custom-check {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+/* .login-container .login-form .custom-check label {
+    margin: 0;
+    color: var(--text);
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+} */
+.login-container .login-form .custom-check input[type="checkbox"] {
+    height: 23px;
+    width: 23px;
+    margin: 0;
+    padding: 0;
+    opacity: 1;
+    appearance: none;
+    border: 2px solid var(--primary-color);
+    border-radius: 3px;
+    background: var(--white);
+    position: relative;
+    margin-right: 10px;
+    cursor: pointer;
+}
+.login-container .login-form .custom-check input[type="checkbox"]:checked {
+    border: 2px solid var(--primary-color);
+    background: var(--primary-color);
+}
+.login-container .login-form .custom-check input[type="checkbox"]:checked:before, .login-container .login-form .custom-check input[type="checkbox"]:checked:after {
+    content: "";
+    position: absolute;
+    height: 2px;
+    background: var(--white);
+}
+.login-container .login-form .custom-check input[type="checkbox"]:checked:before {
+    width: 8px;
+    top: 11px;
+    left: 2px;
+    transform: rotate(44deg);
+}
+.login-container .login-form .custom-check input[type="checkbox"]:checked:after {
+    width: 14px;
+    top: 8px;
+    left: 5px;
+    transform: rotate(-55deg);
+}
+.login-container .login-form .custom-check input[type="checkbox"]:focus {
+    outline: none;
+}
+
+.login-container .login-form .link {
+    color: var(--primary-color);
+    font-weight: 700;
+    text-decoration: none;
+    font-size: 14px;
+    margin-left: 5px;
+}
+.login-container .login-form .link:hover {
+    text-decoration: underline;
+}
+
+.login-container .login-form .login-cta {
+    color: var(--white);
+    text-decoration: none;
+    border: 1px solid var(--primary-color);
+    margin: 20px 0 25px;
+    background: var(--primary-color);
+}
+.login-container .login-form .login-cta:hover {
+    background: var(--login-cta-hover);
+}
+
+
+/* SVG ANIMATION */
+.slideUp-animation {
+    animation: 1.3s 1 forwards cubic-bezier(.36,-0.01,.5,1.38) slideUp;animation-delay: 0s;
+} 
+.slideRight-animation {
+    animation: 1.3s 1 forwards cubic-bezier(.36,-0.01,.5,1.38) slideRight;animation-delay: 0s;
+}                             
+@keyframes slideUp {  
+    0% { opacity: 0; transform: translateY(-30px); }
+    100% { opacity: 1; transform: inherit;  }    
+}                    
+@keyframes slideRight {              
+    0% { opacity: 0; transform: translateX(-30px); }                
+    100% { opacity: 1; transform: translateX(0);   }
+}
+
+
+/* START THE MOBILE SCREEN */
+@media screen and (width: 768px) {
+    .login-container .login-form {
+      order: 1;
+    }
+    .login-container {
+      height: 100vh;
+    }
+}
+@media screen and (max-width: 420px) {
+    .login-container .login-form {
+      padding: 20px;
+    }
+    .login-container .login-form-group {
+      margin-bottom: 16px;
+    }
+    .login-container {
+      margin: 0;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    /* For mobile phones: */
+    body {
+        width: 100%;
+        overflow: visible;
+    }
+    .image-container > [class] {
+        transform: scale(1);
+    }
+    .quote {
+        margin-top: -50px;
+    }
+    .card-container {
+        grid-template-rows: 100vh minmax(100vh, auto);
+        grid-template-columns: none;
+        overflow: hidden;
+    }
+    .image-container {
+        width: 100%;
+        display: none;
+        position: relative;
+    }
+    .image-container > img {
+        width: calc(110%);
+    }
+    .error {
+        font-size: 13px;
+    }
+}
+.update_image {
+    display: flex;
+    color: var(--text-color);
+    background: #0d6efd;
+    border-radius: 4rem;
+    height: 2.4rem;
+    width: 2.4rem;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.profile-layout {
+    width: 100%;
+    padding: 10px;
+    height: 100%;
+    overflow: auto;
+    background: var(--body-color);
+    box-shadow: 0 0 1px var(--box-border-color);
+}
+
+@media (min-width: 992px) {
+    .profile-layout {
+        margin-left: 3rem !important;
+    }
+}
+
+@media (min-width: 768px) {
+    .profile-layout {
+        left: auto;
+        width: 43rem;
+        margin-left: 1.8rem;
+        padding: 10px;
+    }
+}
+.container .upload {
+    /* z-index: -1; */
+    width: 100%;
+    padding: 10px;
+    height: 100%;
+    position: fixed;
+    background: var(--body-color);
+    box-shadow: 0 0 1px var(--box-border-color);
+}
+.dd_upload {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.field_btns {
+    background: var(--body-color);
+    box-shadow: 0 0 1px var(--box-border-color);
+    /* height: 3.4rem !important; */
+    z-index: 1;
+    bottom: 32.5rem;
+}
+a.firstClose.close {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-size: 24px;
+    letter-spacing: 1px;
+    text-decoration: none;
+}
+.field.field_btns.px-4.m-0.s_btn {
+    bottom: 30.6rem;
+}
+.form-control.input-sm {
+    box-shadow: 0 0 0 var(--text-color);
+    background: var(--body-color);
+    color: var(--text-color);
+    text-transform: capitalize;
+    border: none;
+    height: 17rem;
+    border-radius: 0;
+}
+
+.form-group {
+    width: 19rem !important;
+    height: 15.6rem;
+    position: absolute;
+    bottom: 6.8rem;
+    left: auto;
+}
+
+/* ::-webkit-input-placeholder {
+    color: var(--timer-color) !important;
+}
+:-moz-placeholder { /* Upto Firefox 18, Deprecated in Firefox 19  /
+    color: var(--timer-color) !important;  
+}
+::-moz-placeholder {  /* Firefox 19+ /
+    color: var(--timer-color) !important;  
+}
+:-ms-input-placeholder {  
+    color: var(--timer-color) !important;  
+} */
+
+/* This is the Drop image upload field */
+/* MAIN STYLE */
+
+.imgGallery img {
+    padding: 8px;
+    max-width: 100px;
+}  
+
+.cards .top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.cards p {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #878a9a;
+}
+
+.cards button {
+    outline: 0;
+    border: 0;
+    position: relative;
+    left: 23rem;
+    background: #5256ad;
+    color: #fff;
+    border-radius: 4px;
+    transition: 0.3s;
+    font-weight: 400;
+    box-shadow: 0 0 5px rgb(0 0 0 / 15%);
+    font-size: 0.8rem;
+    padding: 8px 13px;
+}
+
+.cards button:hover {
+    opacity: 0.8;
+}
+
+.cards button:active {
+    transform: translateY(5px);
+}
+
+.cards .drag-area {
+    width: 100%;
+    height: 225px;
+    border-radius: 5px;
+    border: 2px dashed #d5d5e1;
+    color: #c8c9dd;
+    font-size: 0.9rem;
+    font-weight: 500;
+    position: relative;
+    background: #dfe3f259;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+.cards .drag-area .visible {
+    font-size: 17px;
+}
+.cards .select {
+    color: #5256ad;
+    margin-left: 5px;
+    cursor: pointer;
+    transition: 0.4s;
+}
+
+.cards .select:hover {
+    opacity: 0.6;
+}
+
+.user-image .containers {
+    width: 110%;
+    height: 236px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    max-height: 300px;
+    overflow-y: scroll;
+    flex-direction: row;
+}
+
+.containers .image {
+    height: 16rem;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 0 4px 0 #888;
+}
+
+.containers .image img {
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    width: auto !important;
+}
+
+.containers .image span {
+    position: absolute;
+    top: 5px;
+    right: 6px;
+    cursor: pointer;
+    background: #f44336;
+    color: #fff;
+    padding: 3px;
+    border-radius: 10px;
+    height: 20px;
+    width: 20px;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+}
+
+
+
+/* Drag Drop Upload CSS */
+.dragover {
+    color: #0d6efd !important;
+    border: 2px dashed #0d6efd !important;
+    height: 7rem !important;
+    width: 7rem !important;
+    transition: 1s;
+}
+
+.sys_upload {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.upload_ico {
+    display: flex;
+    color: var(--text-color);
+    border: 2px dashed var(--box-border-color);
+    border-radius: 4rem;
+    height: 6rem;
+    width: 6rem;
+    align-items: center;
+    justify-content: space-around;
+}
+.upload_txt {
+    display: flex;
+    color: var(--text-color);
+}
+.form__container.active {
+    background-color: rgba(192, 192, 192, 0.2);
+}
+.form__file {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+.form__files-container {
+    display: block;
+    width: 78%;
+    height: 80%;
+    font-size: 0;
+    margin-top: 50px;
+    flex: 0 0 20rem;
+}
+.form__image-container {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.form__image-container:hover:after {
+    opacity: 1;
+    cursor: pointer;
+}
+.form__image {
+    -o-object-fit: contain;
+    object-fit: contain;
+    width: 100%;
+    height: 100%;
+}
+
+
+
+
+@media (min-width: 992px) {
+    .container .upload {
+        margin-left: 8rem !important;
+        width: 50rem;
+    }
+}
+
+@media (min-width: 768px) {
+    .container .upload {
+        width: 42rem;
+        margin-left: 3.8rem;
+        margin-top: 3rem;
+        padding: 10px;
+        height: 33rem;
+        border-radius: 1rem;
+    }
+    
+    .container {
+        max-width: 720px !important;
+    }
+    
+    nav.navbar.w-100.h-100.p-2.position-fixed.rs-navbar.sidebar {
+        display: block;
+    }
+    
+    .field_btns {
+        box-shadow: none;
+        background: none;
+        bottom: 0.5rem !important;
+    }
+    
+    a.firstClose.close {
+        height: 0;
+        font-size: 0;
+    }
+    
+    .sys_controler {
+        position: relative;
+        top: 8rem;
+    }
+    
+    .dd_upload {
+        margin-left: 25px;
+        display: block;
+    }
+
+    .form-group {
+        bottom: 16rem;
+        left: 23rem;
+    }
+    
+    .form__files-container {
+        margin-top: 25px;
+        margin-bottom: 30px;
+        width: 50%;
+        flex: none;
+    }
+    
+    .field.field_btns.px-4.m-0.s_btn {
+        bottom: -1.4rem;
+    }
+    
+    /* .form-control.input-sm {
+        margin-top: 2rem;
+    } */
+}
+
+@media (min-width: 576px) {
+    .container {
+        max-width: none;
+    }
+}
 /*# sourceMappingURL=style.css.map */

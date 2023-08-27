@@ -59,7 +59,7 @@ body{
 
 /* Mrs-CSS */
 .menu-links {
-    bottom: 10px;
+    bottom: 20px;
     left: 20px;
     border-radius: 2rem;
     right: 20px;
@@ -273,9 +273,9 @@ body.dark .text{
 
 @media (min-width: 768px) {
     .col-12 {
-        max-width: 70% !important;
+        max-width: 88% !important;
         margin-right: 2rem;
-        margin-left: 8rem;
+        margin-left: 5rem;
     }
 
     .card {
@@ -305,6 +305,14 @@ body.dark .text{
 
     .col.col-10.p-0.w-100.mt-0 {
         margin-top: 3rem !important;
+    }
+
+    li.nav-link.d-none.align-items-center.profile.position-fixed.me-0 {
+        display: block !important;
+    }
+
+    nav.navbar.w-100.h-100.p-2.position-fixed.rs-navbar.sidebar {
+        display: block !important;
     }
 
     .sidebar li a:hover{

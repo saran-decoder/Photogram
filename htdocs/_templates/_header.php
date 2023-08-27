@@ -72,15 +72,23 @@
                                     <span class="hidden-texts d-none text">Chating</span>
                                 </a>
                             </li>
-                            
-                            <li class="nav-link d-flex align-items-center profile position-fixed me-0">
-                                <a href="#" class="w-100 h-100 d-flex align-items-center text-decoration-none">
+
+                            <?php
+                                $loggedInProfile = Profile::getProfile();
+                                // die(var_dump($loggedInProfile));
+                                while ($loggedInProfile) {
+                                    $profile = Profile::getProfile('owner');
+                                    // die($pro['owner']);
+                            ?>
+                            <li class="nav-link d-none align-items-center profile position-fixed me-0">
+                                <a href="profile" class="w-100 h-100 d-flex align-items-center text-decoration-none">
                                     <i class='p-0 icon d-flex align-items-center justify-content-center' >
-                                        <img src="assets/images/profiles/profile-1.jpg" width="30" height="30" alt="" style="transform: scale(1); border-radius: 2rem;">
+                                        <img src="<?=$profile['avatar']?>" width="30" height="30" alt="" style="transform: scale(1); border-radius: 2rem;">
                                     </i>
                                     <span class="hidden-texts d-none text text-capitalize"><?=Session::getUser()->getUsername()?></span>
                                 </a>
                             </li>
+                            <?php break; } ?>
                             
                             <li class="nav-link d-none align-items-center dropup position-fixed">
                                 <a type="button" class="dropdown-toggle w-100 h-100 d-flex align-items-center text-decoration-none" data-bs-toggle="dropdown" aria-expanded="false">

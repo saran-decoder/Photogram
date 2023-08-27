@@ -1,0 +1,34 @@
+.update_image {
+    display: flex;
+    color: var(--text-color);
+    background: #0d6efd;
+    border-radius: 4rem;
+    height: 2.4rem;
+    width: 2.4rem;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.profile-layout {
+    width: 100%;
+    padding: 10px;
+    height: 100%;
+    overflow: auto;
+    background: var(--body-color);
+    box-shadow: 0 0 1px var(--box-border-color);
+}
+
+@media (min-width: 992px) {
+    .profile-layout {
+        margin-left: 3rem !important;
+    }
+}
+
+@media (min-width: 768px) {
+    .profile-layout {
+        left: auto;
+        width: 43rem;
+        margin-left: 1.8rem;
+        padding: 10px;
+    }
+}

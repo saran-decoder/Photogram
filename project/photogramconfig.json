@@ -4,5 +4,6 @@
 	"db_password": "fubu",
 	"db_name": "photogram",
 	"base_path": "/",
-	"upload_path": "/home/saran/photogram_uploads/"
+	"upload_path": "/home/saran/photogram_uploads/posts/",
+	"avatar_path": "/home/saran/photogram_uploads/avatar/"
 }

@@ -1,3 +1,9 @@
+<style>
+    li.nav-link.d-none.align-items-center.profile.position-fixed.me-0 {
+        display: flex !important;
+    }
+</style>
+
     <div class="container list"> 
 		<div class="col col-12">
 			<div class="row justify-content-center;">

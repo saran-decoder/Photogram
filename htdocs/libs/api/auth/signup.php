@@ -7,7 +7,7 @@ ${basename(__FILE__, '.php')} = function () {
         $phone = $this->_request['phone'];
         $username = $this->_request['username'];
 
-        $result = User::signup($username, $password, $email, $phone);
+        $result = User::signup($username, $password, $email, $phone) and User::def_profile($username);
         if($result) {
             $this->response($this->json([
                 'message'=>'Successfully Signed Up',
