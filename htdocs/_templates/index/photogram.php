@@ -14,6 +14,11 @@
 							$posts = Post::getAllPosts();
 							use Carbon\Carbon;
 
+                            // $Profileavatar = Post::getPostavatar();
+                            // foreach ($Profileavatar as $profile) {
+                                // $user = $profile['avatar'];
+                                // die(var_dump($user));
+
 							foreach ($posts as $post) {
 								$p = new Post($post['id']);
 								$uploaded_time = Carbon::parse($p->getUploadedTime());
@@ -23,7 +28,7 @@
                             <div class="p-2 py-3">
                                 <div class="d-flex flex-row align-items-center">
                                     <div class="rounded-circle overflow-hidden d-flex justify-content-center align-items-center post-profile-photo mr-3" style="width: 2.8rem;height: 2.4rem;">
-                                        <img src="assets/images/profiles/profile-1.jpg" alt="..." style="transform: scale(1); width: 100%;">
+                                        <img src="<?=$p->getAvatar()?>" alt="..." style="transform: scale(1); width: 100%;">
                                     </div>
                                     <strong class="font-weight-bold mx-2 w-100 d-flex flex-column">
                                         <a class="text-decoration-none text-capitalize" style="font-variant: petite-caps; color: var(--text-color);"><?=$p->getOwner()?></a>
@@ -31,7 +36,7 @@
                                     </strong>
                                     <!-- START dropdown-->
                                     <div class="dropdown float-left btn-group">
-                                        <button class="btn p-0 mt-1 text btn-flat btn-flat-icon" type="button" style="margin-left: 0rem; border: none;" aria-expanded="false">
+                                        <button class="btn p-0 mt-1 text btn-flat btn-flat-icon" type="button" style="margin-left: 0rem; border: none; color: var(--text-color);" aria-expanded="false">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" fill="currentColor" class="bi bi-three-dots-vertical" viewBox="0 0 16 16">
                                                 <path d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"></path>
                                             </svg>
@@ -57,8 +62,8 @@
                                         <ul class="list-inline d-flex flex-row align-items-center m-0">
                                             <li class="list-inline-item d-flex align-items-center">
                                                 <button class="btn p-0 list-inline-item">
-                                                    <svg width="1.6em" height="1.6em" viewBox="0 0 16 16" class="bi bi-heart text" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                                                        <path fill-rule="evenodd" d="M8 2.748l-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"></path>
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="1.8em" height="1.8em" fill="currentColor" class="bi bi-arrow-through-heart" viewBox="0 0 16 16">
+                                                        <path fill-rule="evenodd" d="M2.854 15.854A.5.5 0 0 1 2 15.5V14H.5a.5.5 0 0 1-.354-.854l1.5-1.5A.5.5 0 0 1 2 11.5h1.793l.53-.53c-.771-.802-1.328-1.58-1.704-2.32-.798-1.575-.775-2.996-.213-4.092C3.426 2.565 6.18 1.809 8 3.233c1.25-.98 2.944-.928 4.212-.152L13.292 2 12.147.854A.5.5 0 0 1 12.5 0h3a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-.854.354L14 2.707l-1.006 1.006c.236.248.44.531.6.845.562 1.096.585 2.517-.213 4.092-.793 1.563-2.395 3.288-5.105 5.08L8 13.912l-.276-.182a21.86 21.86 0 0 1-2.685-2.062l-.539.54V14a.5.5 0 0 1-.146.354l-1.5 1.5Zm2.893-4.894A20.419 20.419 0 0 0 8 12.71c2.456-1.666 3.827-3.207 4.489-4.512.679-1.34.607-2.42.215-3.185-.817-1.595-3.087-2.054-4.346-.761L8 4.62l-.358-.368c-1.259-1.293-3.53-.834-4.346.761-.392.766-.464 1.845.215 3.185.323.636.815 1.33 1.519 2.065l1.866-1.867a.5.5 0 1 1 .708.708L5.747 10.96Z"/>
                                                     </svg>
                                                 </button>
                                                 <strong class="d-block">1M</strong>

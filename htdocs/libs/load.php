@@ -10,7 +10,7 @@ include_once 'includes/WebAPI.class.php';
 include_once 'app/Post.class.php';
 include_once 'includes/REST.class.php';
 include_once 'includes/API.class.php';
-include_once 'includes/Profile.class.php';
+include_once 'app/Profile.class.php';
 include_once 'app/Like.class.php';
 
 global $__site_config;

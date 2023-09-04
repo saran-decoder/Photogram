@@ -30,7 +30,7 @@
 ?>
 
 <script>
-	window.location.href = "/login.php?error=1"
+	window.location.href = "/login?error=1"
 </script>
 
 <?php
@@ -50,9 +50,16 @@
 		<?php
 			if(isset($_GET['error'])){
 		?>
-				<div class="alert alert-danger" role="alert">
-					Invalid Credentials
-				</div>
+                <div class="toast fade show" role="alert" aria-live="assertive" aria-atomic="true">
+                    <div class="toast-header">
+                        <svg class="bd-placeholder-img rounded me-2" width="20" height="20" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#007aff"></rect></svg>
+                        <strong class="me-auto">Error</strong>
+                        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                    </div>
+                    <div class="toast-body alert-danger">
+                        Invalid Credentials.
+                    </div>
+                </div>
 		<?php
 			}
 		?>

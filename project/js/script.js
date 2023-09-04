@@ -1,59 +1,25 @@
-var darkSwitch = document.getElementById("darkSwitch");
-window.addEventListener("load",( function() {
-    if(darkSwitch) {
-        initTheme();
-        darkSwitch.addEventListener("change",( function() {
-            resetTheme()
-        }))
+$(document).ready(function() {
+    const darkSwitch = $("#darkSwitch");
+
+    // Check if the user has a theme preference in local storage
+    const darkThemeSelected = localStorage.getItem("darkSwitch") === "dark";
+
+    // Initialize theme based on the preference
+    if (darkThemeSelected) {
+        $("body").addClass("dark");
     }
-}));
 
-function initTheme() {
-    var darkThemeSelected = localStorage.getItem("darkSwitch")!==null && localStorage.getItem("darkSwitch")==="dark";
-    darkSwitch.checked = darkThemeSelected;
-    darkThemeSelected ? document.body.setAttribute("class","dark") : document.body.removeAttribute("class")
-}
-
-function resetTheme() {
-    if(darkSwitch.checked) {
-        document.body.setAttribute("class","dark");
-        localStorage.setItem("darkSwitch","dark")
-    } else {
-        document.body.removeAttribute("class");
-        localStorage.removeItem("darkSwitch")
-    }
-}
-
-
-// This is the status Next and prey button javascript
-(function($) {
-
-	$(".card-body").on('scroll', function() {
-    	$val = $(this).scrollLeft();
-
-    	if($(this).scrollLeft() + $(this).innerWidth()>=$(this)[0].scrollWidth){
-          $(".nav-next").hide();
+    // Handle theme toggle checkbox change
+    darkSwitch.change(function() {
+        if (this.checked) {
+            $("body").addClass("dark");
+            localStorage.setItem("darkSwitch", "dark");
         } else {
-    		$(".nav-next").show();
-    	}
-
-    	if($val == 0){
-    		$(".nav-prev").hide();
-    	} else {
-    		$(".nav-prev").show(null);
-    	}
-  	});
-	// console.log( 'init-scroll: ' + $(".nav-next").scrollLeft() );
-	$(".nav-next").on("click", function(){
-		$(".card-body").animate( { scrollLeft: '+=460' }, 200);
-		
-	});
-	$(".nav-prev").on("click", function(){
-		$(".card-body").animate( { scrollLeft: '-=460' }, 200);
-	});
-
-})(jQuery);
-
+            $("body").removeClass("dark");
+            localStorage.removeItem("darkSwitch");
+        }
+    });
+});
 
 
 // Function to set a cookie

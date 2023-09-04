@@ -1,41 +1,58 @@
-/** Variables */
-let profile = [],
-profileinput = document.querySelector('.view_img input'),
-select_input = document.querySelector('.input_profile_btn'),
-view_img = document.querySelector('.view_image'),
-update_img = document.querySelector('.update_img');
-
-/** CLICK LISTENER */
-if (select_input && profileinput) {
-    select_input.addEventListener('click', () => {
-      console.log('Update image clicked!');
-      profileinput.click();
+// This is edit profile image preview jquery
+$(document).ready(function() {
+    let profileinput = $('.file-input'),
+        selectinput = $('.profile_input'),
+        curElement = $('.view_image'); // Cache the image element
+    
+    /** CLICK LISTENER */
+    selectinput.click(function() {
+        console.log('Update image clicked!');
+        profileinput.click();
+        console.log('Opening Your File & Processing!');
     });
-}
 
-/* INPUT CHANGE EVENT */
-if (profileinput && profile) {
-    profileinput.addEventListener('change', () => {
-        let file = profileinput.profile;
+    $(profileinput).change(function(){
+        console.log('File image select & Opened!');
+        var reader = new FileReader();
 
-        // if user select no image
-        if (file == 0) return;
+        reader.onload = function (e) {
+            // Check if the event has a target result
+            if (e.target.result) {
+                // Create a Blob URL from the loaded data and set it as the image source
+                curElement.attr('src', URL.createObjectURL(new Blob([e.target.result])));
+            }
+        };
 
-        for(let i = 0; i < file; i++) {
-            console.log(file[i]);
-            if (file[i].type.split("/")[0] != 'image') continue;
-            if (!profile.some(e => e.name == file[i].name)) profile.push(file[i])
-        }
-        showImages();
+        // read the image file as a data URL
+        reader.readAsArrayBuffer(this.files[0]);
     });
-}
+});
 
-/** SHOW IMAGES */
-function showImages() {
-    view_img.innerHTML = profile.reduce((prev, curr) => { // index
-        return `${prev}
-            <img src="${URL.createObjectURL(curr)}" alt="..." width="130" style="border-radius: 4rem;"/>`
-    }, '');
-    update_img.classList.add('d-none');
-    select_input.classList.add('d-none');
-}
+
+// This is edit profile user info update menu 'active' class add & remove jquery
+$(document).ready(function() {
+
+    // Define an array of section IDs for easier management
+    var sections = ['bio', 'user', 'email', 'num', 'gen', 'dob', 'link', 'pass'];
+
+    // Click event handler for the icons
+    $.each(sections, function(index, section) {
+        $('#' + section + 'RightIcon').click(function() {
+            $('#' + section + 'DownIcon, #' + section + 'Class').addClass('active');
+            $.each(sections, function(i, otherSection) {
+                if (otherSection !== section) {
+                    $('#' + section + 'RightIcon, #' + otherSection + 'DownIcon, #' + otherSection + 'Class').removeClass('active');
+                    $('#' + otherSection + 'RightIcon').addClass('active');
+                }
+            });
+            console.log('Yeah this righticon working cool...');
+        });
+
+        $('#' + section + 'DownIcon').click(function() {
+            $('#' + section + 'RightIcon').addClass('active');
+            $('#' + section + 'DownIcon, #' + section + 'Class').removeClass('active');
+            console.log('Yeah this downicon working cool...');
+        });
+    });
+
+});

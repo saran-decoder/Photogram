@@ -8,6 +8,9 @@ ErrorDocument 500 "<H1>Some error, contact administrator</H1>"
 RewriteEngine On
 RewriteBase /
 
+# Rewrite URLs to profile.php for username handling
+RewriteRule ^/?profile/([^/]+)?$ profile.php?username=$1 [L,QSA,NC]
+
 RewriteRule ^/?files/([^/]+)?$ files.php?name=$1 [L,QSA,NC]
 RewriteRule ^/?ava/([^/]+)?$ ava.php?name=$1 [L,QSA,NC]
 

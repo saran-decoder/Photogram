@@ -34,8 +34,10 @@ class User
     {
         $conn = Database::getConnection();
         $avatar = "/ava/avatar.jpg";
-        $sql = "INSERT INTO `users` (`userid`, `bio`, `avatar`, `gender`, `dob`, `links`, `owner`)
-        VALUES ('', '', '$avatar', '', now(), '', '$user');";
+        $bio = "Hey there! I am using Photogram";
+        $userid = Session::getUser()->getID();
+        $sql = "INSERT INTO `users` (`userid`, `bio`, `avatar`, `gender`, `dob`, `links`, `uploaded_time`, `owner`)
+        VALUES ('$userid', '$bio', '$avatar', '', '', '', now(), '$user');";
         try {
             return $conn->query($sql);
         } catch (Exception $e) {
@@ -86,14 +88,14 @@ class User
         }
     }
 
-    public function setDob($year, $month, $day)
-    {
-        if (checkdate($month, $day, $year)) { //checking data is valid
-            return $this->_set_data('dob', "$year.$month.$day");
-        } else {
-            return false;
-        }
-    }
+    // public function setDob($year, $month, $day)
+    // {
+    //     if (checkdate($month, $day, $year)) { //checking data is valid
+    //         return $this->_set_data('dob', "$year.$month.$day");
+    //     } else {
+    //         return false;
+    //     }
+    // }
 
 
 
@@ -102,9 +104,9 @@ class User
     //     return $this->username;
     // }
 
-    public function authenticate()
-    {
-    }
+    // public function authenticate()
+    // {
+    // }
 
     // public function setBio($bio)
     // {

@@ -1,4 +1,4 @@
-/*Processed by SNA Labs on 26/8/2023 @ 17:36:34*/
+/*Processed by SNA Labs on 4/9/2023 @ 19:33:28*/
 /*
 CryptoJS v3.1.2
 code.google.com/p/crypto-js
@@ -404,103 +404,87 @@ $.post('/api/posts/count', {
     console.log(data);
     $('#total-posts').html("Total Posts: " + data.count);
 });
-/** Variables */
-let profile = [],
-profileinput = document.querySelector('.view_img input'),
-select_input = document.querySelector('.input_profile_btn'),
-view_img = document.querySelector('.view_image'),
-update_img = document.querySelector('.update_img');
-
-/** CLICK LISTENER */
-if (select_input && profileinput) {
-    select_input.addEventListener('click', () => {
-      console.log('Update image clicked!');
-      profileinput.click();
+// This is edit profile image preview jquery
+$(document).ready(function() {
+    let profileinput = $('.file-input'),
+        selectinput = $('.profile_input'),
+        curElement = $('.view_image'); // Cache the image element
+    
+    /** CLICK LISTENER */
+    selectinput.click(function() {
+        console.log('Update image clicked!');
+        profileinput.click();
+        console.log('Opening Your File & Processing!');
     });
-}
 
-/* INPUT CHANGE EVENT */
-if (profileinput && profile) {
-    profileinput.addEventListener('change', () => {
-        let file = profileinput.profile;
+    $(profileinput).change(function(){
+        console.log('File image select & Opened!');
+        var reader = new FileReader();
 
-        // if user select no image
-        if (file == 0) return;
+        reader.onload = function (e) {
+            // Check if the event has a target result
+            if (e.target.result) {
+                // Create a Blob URL from the loaded data and set it as the image source
+                curElement.attr('src', URL.createObjectURL(new Blob([e.target.result])));
+            }
+        };
 
-        for(let i = 0; i < file; i++) {
-            console.log(file[i]);
-            if (file[i].type.split("/")[0] != 'image') continue;
-            if (!profile.some(e => e.name == file[i].name)) profile.push(file[i])
-        }
-        showImages();
+        // read the image file as a data URL
+        reader.readAsArrayBuffer(this.files[0]);
     });
-}
+});
 
-/** SHOW IMAGES */
-function showImages() {
-    view_img.innerHTML = profile.reduce((prev, curr) => { // index
-        return `${prev}
-            <img src="${URL.createObjectURL(curr)}" alt="..." width="130" style="border-radius: 4rem;"/>`
-    }, '');
-    update_img.classList.add('d-none');
-    select_input.classList.add('d-none');
-}
-var darkSwitch = document.getElementById("darkSwitch");
-window.addEventListener("load",( function() {
-    if(darkSwitch) {
-        initTheme();
-        darkSwitch.addEventListener("change",( function() {
-            resetTheme()
-        }))
+
+// This is edit profile user info update menu 'active' class add & remove jquery
+$(document).ready(function() {
+
+    // Define an array of section IDs for easier management
+    var sections = ['bio', 'user', 'email', 'num', 'gen', 'dob', 'link', 'pass'];
+
+    // Click event handler for the icons
+    $.each(sections, function(index, section) {
+        $('#' + section + 'RightIcon').click(function() {
+            $('#' + section + 'DownIcon, #' + section + 'Class').addClass('active');
+            $.each(sections, function(i, otherSection) {
+                if (otherSection !== section) {
+                    $('#' + section + 'RightIcon, #' + otherSection + 'DownIcon, #' + otherSection + 'Class').removeClass('active');
+                    $('#' + otherSection + 'RightIcon').addClass('active');
+                }
+            });
+            console.log('Yeah this righticon working cool...');
+        });
+
+        $('#' + section + 'DownIcon').click(function() {
+            $('#' + section + 'RightIcon').addClass('active');
+            $('#' + section + 'DownIcon, #' + section + 'Class').removeClass('active');
+            console.log('Yeah this downicon working cool...');
+        });
+    });
+
+});
+
+$(document).ready(function() {
+    const darkSwitch = $("#darkSwitch");
+
+    // Check if the user has a theme preference in local storage
+    const darkThemeSelected = localStorage.getItem("darkSwitch") === "dark";
+
+    // Initialize theme based on the preference
+    if (darkThemeSelected) {
+        $("body").addClass("dark");
     }
-}));
 
-function initTheme() {
-    var darkThemeSelected = localStorage.getItem("darkSwitch")!==null && localStorage.getItem("darkSwitch")==="dark";
-    darkSwitch.checked = darkThemeSelected;
-    darkThemeSelected ? document.body.setAttribute("class","dark") : document.body.removeAttribute("class")
-}
-
-function resetTheme() {
-    if(darkSwitch.checked) {
-        document.body.setAttribute("class","dark");
-        localStorage.setItem("darkSwitch","dark")
-    } else {
-        document.body.removeAttribute("class");
-        localStorage.removeItem("darkSwitch")
-    }
-}
-
-
-// This is the status Next and prey button javascript
-(function($) {
-
-	$(".card-body").on('scroll', function() {
-    	$val = $(this).scrollLeft();
-
-    	if($(this).scrollLeft() + $(this).innerWidth()>=$(this)[0].scrollWidth){
-          $(".nav-next").hide();
+    // Handle theme toggle checkbox change
+    darkSwitch.change(function() {
+        if (this.checked) {
+            $("body").addClass("dark");
+            localStorage.setItem("darkSwitch", "dark");
         } else {
-    		$(".nav-next").show();
-    	}
-
-    	if($val == 0){
-    		$(".nav-prev").hide();
-    	} else {
-    		$(".nav-prev").show(null);
-    	}
-  	});
-	// console.log( 'init-scroll: ' + $(".nav-next").scrollLeft() );
-	$(".nav-next").on("click", function(){
-		$(".card-body").animate( { scrollLeft: '+=460' }, 200);
-		
-	});
-	$(".nav-prev").on("click", function(){
-		$(".card-body").animate( { scrollLeft: '-=460' }, 200);
-	});
-
-})(jQuery);
-
+            $("body").removeClass("dark");
+            localStorage.removeItem("darkSwitch");
+        }
+    });
+});
 
 
 // Function to set a cookie

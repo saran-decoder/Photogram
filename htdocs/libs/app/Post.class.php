@@ -15,18 +15,20 @@ class Post
     public static function registerPost($text, $image_tmp)
     {
         if (is_file($image_tmp) and exif_imagetype($image_tmp) !== false) {
-            $userid = md5(Session::getUser()->getID());
+            $userid = Session::getUser()->getID();
             $author = Session::getUser()->getUsername();
             $image_name = md5($author.time()) . image_type_to_extension(exif_imagetype($image_tmp));
             $image_path = get_config('upload_path') . $image_name;
             if (move_uploaded_file($image_tmp, $image_path)) {
+                $avatar = "/ava/avatar.jpg";
                 $image_uri = "/files/$image_name";
-                $insert_command = "INSERT INTO `posts` (`userid`, `post_text`, `multiple_images`, `image_uri`, `like_count`, `uploaded_time`, `owner`) VALUES ('$userid', '$text', 0, '$image_uri', '0', now(), '$author')";
+                $insert_command = "INSERT INTO `posts` (`userid`, `post_text`, `multiple_images`, `image_uri`, `avatar`, `uploaded_time`, `owner`) VALUES ('$userid', '$text', 0, '$image_uri', '$avatar', now(), '$author')";
                 $db = Database::getConnection();
                 if ($db->query($insert_command)) {
                     $id = mysqli_insert_id($db);
                     return new Post($id);
                 } else {
+                    echo "<script>window.location.href = '/Uploads?error'</script>";
                     return false;
                 }
             }
@@ -39,6 +41,25 @@ class Post
     {
         $db = Database::getConnection();
         $sql = "SELECT * FROM `posts` ORDER BY `uploaded_time` DESC";
+        $result = $db->query($sql);
+        return iterator_to_array($result);
+    }
+
+    public static function getPostavatar()
+    {
+        $db = Database::getConnection();
+        $owner = Session::getUser()->getUsername();
+        $sql = "SELECT `avatar` FROM `users` WHERE `owner` = '$owner'";
+        $result = $db->query($sql);
+        return iterator_to_array($result);
+    }
+
+    public static function getUserposts()
+    {
+        $username = $_GET['username'];
+        $db = Database::getConnection();
+        $id = Session::getUser()->getID();
+        $sql = "SELECT `image_uri` FROM `posts` WHERE `owner` = '$username'";
         $result = $db->query($sql);
         return iterator_to_array($result);
     }

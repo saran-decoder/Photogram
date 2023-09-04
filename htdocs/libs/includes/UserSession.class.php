@@ -119,22 +119,21 @@ class UserSession
      */
     public function isValid()
     {
-        if($_COOKIE['fingerprint'] == $this->getFingerprint()) {
-            return true;
-        } else {
-            return false;
-        }
-        if (isset($this->data['login_time'])) {
-            $login_time = DateTime::createFromFormat('Y-m-d H:i:s', $this->data['login_time']);
-            if (3600 > time() - $login_time->getTimestamp()) {
-                return true;
+        if ($this->getFingerprint() && $_COOKIE['fingerprint'] == $this->getFingerprint()) {
+            if (isset($this->data['login_time'])) {
+                $login_time = DateTime::createFromFormat('Y-m-d H:i:s', $this->data['login_time']);
+                if (2592000 > time() - $login_time->getTimestamp()) {
+                    return true;
+                } else {
+                    return false;
+                }
             } else {
-                return false;
+                throw new Exception("login time is null");
             }
-        } else {
-            throw new Exception("login time is null");
         }
+        return false; // Return false if fingerprint doesn't match or is not set
     }
+
 
     public function getIP()
     {
@@ -168,6 +167,7 @@ class UserSession
         if (isset($this->data['fingerprint'])) {
             return $this->data['fingerprint'] ? true : false;
         }
+        return false; // Return false if 'fingerprint' key is not set
     }
 
     //This function remove current session
