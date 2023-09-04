@@ -73,7 +73,7 @@
                             </label>
 
                             <label class="list-group-item rounded-3 py-3 text d-flex align-items-center justify-content-between setting">
-                                <a class="text" href="#">Delete Account</a>
+                                <a class="text" href="/?logout">Logout</a>
                             </label>
 
                         </div>
