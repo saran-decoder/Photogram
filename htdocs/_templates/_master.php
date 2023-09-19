@@ -36,7 +36,7 @@
 	<script src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js" integrity="sha384-GNFwBvfVxBkLMJpYMOABq3c+d3KnQxudP/mGPkzpZSTYykLBNsZEnG2D9G/X/+7D" crossorigin="anonymous" async></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"></script>
 	<script src="<?=get_config('base_path')?>assets/dist/js/bootstrap.bundle.min.js"></script>
-	<script src="<?=get_config('base_path')?>assets/dist/js/jquery-3.7.1.min.js"></script>
+	<script src="<?=get_config('base_path')?>assets/dist/js/jquery-3.6.3.min.js"></script>
 
 	<script src="/js/app.min.js"></script>
 	

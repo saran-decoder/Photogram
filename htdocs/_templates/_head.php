@@ -4,6 +4,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 	<meta name="description" content="the page description">
 	<link rel="canonical" href="http://photogram.saran.com/">
+
+	<link rel="shortcut icon" href="/assets/images/default/icon.png" type="image/x-icon">
+
     <title>photogram - <?=basename($_SERVER['PHP_SELF'], ".php");?></title>
 
 	<!-- Bootstrap core CSS -->

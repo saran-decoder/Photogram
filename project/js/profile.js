@@ -56,3 +56,32 @@ $(document).ready(function() {
     });
 
 });
+
+
+
+let pressTimer;
+$(".longPress").mouseup(function () {
+  clearTimeout(pressTimer);
+  return false;
+}).mousedown(function () {
+  pressTimer = window.setTimeout(function () {
+    window.location.href = "#";
+  }, 1000);
+  return false;
+});
+
+
+
+
+$(document).ready(function() {
+    let clickCount = 0;
+
+    $('.longPress').click(function() {
+        clickCount++;
+
+        if (clickCount === 2) {
+            // Double-click do any event
+            alert('Hai Baby!');
+        }
+    });
+});

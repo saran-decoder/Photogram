@@ -20,10 +20,10 @@ class Profile
             $image_path = get_config('avatar_path') . $image_name;
             if (move_uploaded_file($avatar, $image_path)) {
                 $avatar_path = "/ava/$image_name";
-                $update_profile = "UPDATE `users` SET `avatar`='$avatar_path' WHERE `id`='$id'";
+                $update_profile = "UPDATE `users` SET `avatar`='$avatar_path' WHERE `userid`='$id'";
                 $db = Database::getConnection();
                 if ($db->query($update_profile)) {
-                    $update_postavatar = "UPDATE `posts` SET `avatar`='$avatar_path' WHERE `id`='$id'";
+                    $update_postavatar = "UPDATE `posts` SET `avatar`='$avatar_path' WHERE `userid`='$id'";
                     if ($db->query($update_postavatar)) {
                         echo "<script>window.location.href = '/profile-edit?savedavatars={$headid}'</script>";
                         return true;
@@ -39,7 +39,7 @@ class Profile
                 throw new Exception("Profile avatar could not be moved.");
             }
         } else {
-            echo "<script>window.location.href = '/profile?{$owner}'</script>";
+            echo "<script>window.location.href = '/profile/{$owner}'</script>";
         }
     }
 
@@ -48,7 +48,7 @@ class Profile
         $db = Database::getConnection();
         $id = Session::getUser()->getID();
         $headid = md5(Session::getUser()->getUsername());
-        $update_profile = "UPDATE `users` SET `bio`='$bio' WHERE `id`='$id'";
+        $update_profile = "UPDATE `users` SET `bio`='$bio' WHERE `userid`='$id'";
         try {
             if ($db->query($update_profile)) {
                 echo "<script>window.location.href = '/profile-edit?savedbio={$headid}'</script>";
@@ -140,7 +140,7 @@ class Profile
         $db = Database::getConnection();
         $id = Session::getUser()->getID();
         $headid = md5(Session::getUser()->getUsername());
-        $update_profile = "UPDATE `users` SET `gender`='$gender' WHERE `id`='$id'";
+        $update_profile = "UPDATE `users` SET `gender`='$gender' WHERE `userid`='$id'";
         try {
             if ($db->query($update_profile)) {
                 echo "<script>window.location.href = '/profile-edit?savedgender={$headid}'</script>";
@@ -160,7 +160,7 @@ class Profile
         $db = Database::getConnection();
         $id = Session::getUser()->getID();
         $headid = md5(Session::getUser()->getUsername());
-        $update_profile = "UPDATE `users` SET `dob`='$dob' WHERE `id`='$id'";
+        $update_profile = "UPDATE `users` SET `dob`='$dob' WHERE `userid`='$id'";
         try {
             if ($db->query($update_profile)) {
                 echo "<script>window.location.href = '/profile-edit?saveddob={$headid}'</script>";
@@ -216,7 +216,7 @@ class Profile
         $db = Database::getConnection();
         $id = Session::getUser()->getID();
         $headid = md5(Session::getUser()->getUsername());
-        $update_profile = "UPDATE `users` SET `link`='$link' WHERE `id`='$id'";
+        $update_profile = "UPDATE `users` SET `link`='$link' WHERE `userid`='$id'";
         try {
             if ($db->query($update_profile)) {
                 echo "<script>window.location.href = '/profile-edit?savedlink={$headid}'</script>";
@@ -262,7 +262,6 @@ class Profile
     {
         $username = $_GET['username'];
         $db = Database::getConnection();
-        $id = Session::getUser()->getID();
         $sql = "SELECT COUNT(*) AS `image_uri` FROM `posts` WHERE `owner` = '$username'";
         $result = $db->query($sql);
         return iterator_to_array($result);

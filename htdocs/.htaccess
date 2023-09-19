@@ -8,11 +8,21 @@ ErrorDocument 500 "<H1>Some error, contact administrator</H1>"
 RewriteEngine On
 RewriteBase /
 
+RewriteEngine On
+
+
+# Add these conditions to exclude existing files and directories
+# RewriteCond %{REQUEST_FILENAME} !-f
+# RewriteCond %{REQUEST_FILENAME} !-d
+
 # Rewrite URLs to profile.php for username handling
 RewriteRule ^/?profile/([^/]+)?$ profile.php?username=$1 [L,QSA,NC]
 
+RewriteRule ^/?search([^/]+)?$ search.php?q=$1 [L,QSA,NC]
+
 RewriteRule ^/?files/([^/]+)?$ files.php?name=$1 [L,QSA,NC]
 RewriteRule ^/?ava/([^/]+)?$ ava.php?name=$1 [L,QSA,NC]
+RewriteRule ^/?groupavatar/([^/]+)?$ groupavatar.php?name=$1 [L,QSA,NC]
 
 RewriteRule ^/?api/([^/]+)?$ api.php?rquest=$1 [L,QSA,NC]
 RewriteRule ^/?api/([^/]+)/(.+)?$ api.php?rquest=$2&namespace=$1 [L,QSA,NC]

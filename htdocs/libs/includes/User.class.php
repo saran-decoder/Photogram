@@ -23,28 +23,45 @@ class User
         VALUES ('$user', '$pass', '$email', '$phone');";
         //PHP 8.1 - all MySQLi errors are throws as Exceptions
         try {
-            return $conn->query($sql);
+            if ($conn->query($sql)) {
+                $avatar = "/ava/avatar.jpg";
+                $bio = "Hey there! I am using Photogram";
+                $userid = mysqli_insert_id($conn);
+                $sql = "INSERT INTO `users` (`userid`, `bio`, `avatar`, `gender`, `dob`, `linkname`, `link`, `uploaded_time`, `owner`)
+                VALUES ('$userid', '$bio', '$avatar', '', now(), '', '', now(), '$user');";
+                try {
+                    if ($conn->query($sql)) {
+                        echo "<script>window.location.href = '/signup?{$user}={$userid}'</script>";
+                        return true;
+                    } else {
+                        return false;
+                    }
+                } catch (Exception $e) {
+                    echo "Error: " . $sql . "<br>" . $e->getMessage() . $conn->error;
+                    return false;
+                }
+            }
         } catch (Exception $e) {
             echo "Error: " . $sql . "<br>" . $conn->error;
             return false;
         }
     }
 
-    public static function def_profile($user)
-    {
-        $conn = Database::getConnection();
-        $avatar = "/ava/avatar.jpg";
-        $bio = "Hey there! I am using Photogram";
-        $userid = Session::getUser()->getID();
-        $sql = "INSERT INTO `users` (`userid`, `bio`, `avatar`, `gender`, `dob`, `links`, `uploaded_time`, `owner`)
-        VALUES ('$userid', '$bio', '$avatar', '', '', '', now(), '$user');";
-        try {
-            return $conn->query($sql);
-        } catch (Exception $e) {
-            echo "Error: " . $sql . "<br>" . $conn->error;
-            return false;
-        }
-    }
+    // public static function def_profile($user)
+    // {
+    //     $conn = Database::getConnection();
+    //     $avatar = "/ava/avatar.jpg";
+    //     $bio = "Hey there! I am using Photogram";
+    //     $userid = Session::getUser()->getID();
+    //     $sql = "INSERT INTO `users` (`userid`, `bio`, `avatar`, `gender`, `dob`, `link`, `uploaded_time`, `owner`)
+    //     VALUES ('$userid', '$bio', '$avatar', '', '', '', now(), '$user');";
+    //     try {
+    //         return $conn->query($sql);
+    //     } catch (Exception $e) {
+    //         echo "Error: " . $sql . "<br>" . $conn->error;
+    //         return false;
+    //     }
+    // }
 
     public static function login($user, $pass)
     {
@@ -88,101 +105,17 @@ class User
         }
     }
 
-    // public function setDob($year, $month, $day)
-    // {
-    //     if (checkdate($month, $day, $year)) { //checking data is valid
-    //         return $this->_set_data('dob', "$year.$month.$day");
-    //     } else {
-    //         return false;
-    //     }
-    // }
+    public static function getUserAccount() {
+        $conn = Database::getConnection();
+        $sql = "SELECT * FROM `users` ORDER BY `uploaded_time` DESC";
+        $result = $conn->query($sql);
+        return iterator_to_array($result);
+    }
 
-
-
-    // public function getUsername()
-    // {
-    //     return $this->username;
-    // }
-
-    // public function authenticate()
-    // {
-    // }
-
-    // public function setBio($bio)
-    // {
-    //     //TODO: Write UPDATE command to change new bio
-    //     return $this->_set_data('bio', $bio);
-    // }
-
-    // public function getBio()
-    // {
-    //     //TODO: Write SELECT command to get the bio.
-    //     return $this->_get_data('bio');
-    // }
-
-    // public function setAvatar($link)
-    // {
-    //     return $this->_set_data('avatar', $link);
-    // }
-
-    // public function getAvatar()
-    // {
-    //     return $this->_get_data('avatar');
-    // }
-
-    // public function setFirstname($name)
-    // {
-    //     return $this->_set_data("firstname", $name);
-    // }
-
-    // public function getFirstname()
-    // {
-    //     return $this->_get_data('firstname');
-    // }
-
-    // public function setLastname($name)
-    // {
-    //     return $this->_set_data("lastname", $name);
-    // }
-
-    // public function getLastname()
-    // {
-    //     return $this->_get_data('lastname');
-    // }
-
-
-
-    // public function getDob()
-    // {
-    //     return $this->_get_data('dob');
-    // }
-
-    // public function setInstagramlink($link)
-    // {
-    //     return $this->_set_data('instagram', $link);
-    // }
-
-    // public function getInstagramlink()
-    // {
-    //     return $this->_get_data('instagram');
-    // }
-
-    // public function setTwitterlink($link)
-    // {
-    //     return $this->_set_data('twitter', $link);
-    // }
-
-    // public function getTwitterlink()
-    // {
-    //     return $this->_get_data('twitter');
-    // }
-    // public function setFacebooklink($link)
-    // {
-    //     return $this->_set_data('facebook', $link);
-    // }
-
-    // public function getFacebooklink()
-    // {
-    //     return $this->_get_data('facebook');
-    // }
+    public static function getAccountCount() {
+        $db = Database::getConnection();
+        $sql = "SELECT COUNT(*) AS `owner` FROM `users` ORDER BY `uploaded_time` DESC";
+        $result = $db->query($sql);
+        return iterator_to_array($result);
+    }
 }

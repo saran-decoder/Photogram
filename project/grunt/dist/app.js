@@ -1,4 +1,4 @@
-/*Processed by SNA Labs on 4/9/2023 @ 19:33:28*/
+/*Processed by SNA Labs on 18/9/2023 @ 9:17:47*/
 /*
 CryptoJS v3.1.2
 code.google.com/p/crypto-js
@@ -230,6 +230,53 @@ function display_dialog(bt_name,content,func){
 	]);
 	d.show();
 }
+// start: Coversation
+document.querySelectorAll('.conversation-item-dropdown-toggle').forEach(function(item) {
+    item.addEventListener('click', function(e) {
+        e.preventDefault()
+        if(this.parentElement.classList.contains('active')) {
+            this.parentElement.classList.remove('active')
+        } else {
+            document.querySelectorAll('.conversation-item-dropdown').forEach(function(i) {
+                i.classList.remove('active')
+            })
+            this.parentElement.classList.add('active')
+        }
+    })
+})
+
+document.addEventListener('click', function(e) {
+    if(!e.target.matches('.conversation-item-dropdown, .conversation-item-dropdown *')) {
+        document.querySelectorAll('.conversation-item-dropdown').forEach(function(i) {
+            i.classList.remove('active')
+        })
+    }
+})
+
+document.querySelectorAll('.conversation-form-input').forEach(function(item) {
+    item.addEventListener('input', function() {
+        this.rows = this.value.split('\n').length
+    })
+})
+
+document.querySelectorAll('[data-conversation]').forEach(function(item) {
+    item.addEventListener('click', function(e) {
+        e.preventDefault()
+        document.querySelectorAll('.conversation').forEach(function(i) {
+            i.classList.remove('active')
+        })
+        document.querySelector(this.dataset.conversation).classList.add('active')
+    })
+})
+
+document.querySelectorAll('.conversation-back').forEach(function(item) {
+    item.addEventListener('click', function(e) {
+        e.preventDefault()
+        this.closest('.conversation').classList.remove('active')
+        document.querySelector('.conversation-default').classList.add('active')
+    })
+})
+// end: Coversation
 /** Variables */
 let files = [],
 dragArea = document.querySelector('.drag-area'),
@@ -241,6 +288,7 @@ command_display = document.querySelector('.form-group'),
 class_ctrl = document.querySelector('.sys_controler'),
 container = document.querySelector('.containers'),
 imageCount = document.querySelector('.image-count'),
+text_msg = document.querySelector('.form-group.col-md-12'),
 submit_btn = document.querySelector('.submit');
 
 /** CLICK LISTENER */
@@ -283,6 +331,7 @@ function showImages() {
     class_ctrl.classList.remove('sys_controler');
     class_add.classList.add('dd_upload');
     submit_btn.classList.add('d-flex');
+    text_msg.classList.add('d-block');
 
     command_display.classList.remove('d-none');
 }
@@ -330,7 +379,7 @@ $(document).ready(function(){
         var len = $(this).val().length;
         // console.log(len);
         if (len >= max) {
-            $('#characterLeft').text("You're have reached the limit");
+            $('#characterLeft').html("<b class='text-danger'>You're have reached the limit</b>");
             $('#characterLeft').addClass('red');
         } else {
             var ch = max - len;
@@ -397,8 +446,52 @@ $('#dell').on('click', function(){
     d.show();
 });
 
+
+// This is the like & unlike button api call jquery
+// $(document).ready(function() {
+//     let clickCount = 0;
+
+//     $('.longPress').click(function() {
+//         clickCount++;
+
+//         if (clickCount === 2) {
+//             // Double-click do any event
+//             alert('Hai Baby!');
+//         }
+//     });
+// });
+$(".btn-like").on("click", function () {
+    post_id = $(this).parents("div").attr("data-id");
+    like_id = "#like-" + post_id;
+    like_count = '#like-count-' + post_id;
+
+    if ($(like_id).hasClass("liked")) {
+        $(like_id).removeClass("liked");
+        $(like_id).removeClass("text-danger");
+        $('.icon-liked').addClass('d-none');
+        $('.icon-like').removeClass('d-none');
+        like = $(like_count).html();
+        like = parseInt(like) - 1;
+        $(like_count).text(like);
+        $.post("/api/posts/unlike", { id: post_id }, function (data) {
+            console.log(data);
+        });
+    } else {
+        $(like_id).addClass("liked");
+        $(like_id).addClass("text-danger");
+        like = $(like_count).html();
+        like = parseInt(like) + 1;
+        $(like_count).text(like);
+        $.post("/api/posts/like", { id: post_id }, function (data) {
+            console.log(data);
+        });
+    }
+});
+
+
+
 // This is called api and fetch total post count
-$.post('/api/posts/count', {
+$.post('/api/profile/count', {
     id: 10
 }, function(data) {
     console.log(data);
@@ -463,6 +556,34 @@ $(document).ready(function() {
 
 });
 
+
+
+let pressTimer;
+$(".longPress").mouseup(function () {
+  clearTimeout(pressTimer);
+  return false;
+}).mousedown(function () {
+  pressTimer = window.setTimeout(function () {
+    window.location.href = "#";
+  }, 1000);
+  return false;
+});
+
+
+
+
+$(document).ready(function() {
+    let clickCount = 0;
+
+    $('.longPress').click(function() {
+        clickCount++;
+
+        if (clickCount === 2) {
+            // Double-click do any event
+            alert('Hai Baby!');
+        }
+    });
+});
 $(document).ready(function() {
     const darkSwitch = $("#darkSwitch");
 

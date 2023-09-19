@@ -1,30 +1,19 @@
-<pre>
 <?php
+include 'libs/load.php';
 
-print("Hello World! \n");
+$conn = Database::getConnection();
+$groupMessage = new GroupMessage($conn);
 
+$groupId = 1;
+$senderId = 1;
+$message = "Hello World!";
 
+$result = $groupMessage->sendGroupMessage($groupId, $senderId, $message);
 
-print("_SESSION \n");
-print_r($_SESSION);
-print("_SERVER \n");
-print_r($_SERVER);
-print("_FILES \n");
-print_r($_FILES);
-print("_COOKIE \n");
-print_r($_COOKIE);
-print("_REQUEST \n");
-print_r($_REQUEST);
-print("_GET \n");
-print_r($_GET);
-print("_POST \n");
-print_r($_POST);
-print("_ENV \n");
-print_r($_ENV);
-print("_GLOBALS \n");
-print_r($GLOBALS);
-print("getallheaders() \n");
-
+if ($result) {
+    echo "Group message send successfully!";
+} else {
+    echo "Error sending group message!";
+}
 
 ?>
-</pre>

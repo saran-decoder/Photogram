@@ -19,10 +19,11 @@
     /* Colors */
     --body-color: #fff;
     --bg-body-color: #e9ecef;
-    --box-border-color: #999;
+    --box-border-color: #212529;
     --text-color: #000;
     --timer-color: #999;
     --more-color: #e9ecef;
+    --bs-dark: #e9ecef;;
 
     /* Transition */
     --tran-03: all 0.2s ease;
@@ -38,11 +39,12 @@ body.dark{
     --text-color: #fff;
     --timer-color: #999;
     --more-color: #999;
+    --bs-dark: #212529;
 }
 
 body{
     min-height: 100vh;
-    background-color: var(--bg-body-color);
+    background-color: var(--body-color);
     transition: var(--tran-05);
     padding-right: 0px !important;
     overflow: auto !important;
@@ -72,15 +74,6 @@ span.fs-4.hidden-text.text {
     display: block;
 }
 
-/* Mrs-CSS */
-.profile {
-    top: -2px;
-    width: 3rem;
-    border-radius: 0 0 2rem 2rem;
-    background: var(--body-color);
-    box-shadow: 0 0 1px var(--box-border-color);
-}
-
 
 /* Reusable code - Here */
 .sidebar li{
@@ -93,6 +86,7 @@ span.fs-4.hidden-text.text {
 
 .sidebar .text,
 .sidebar .icon{
+    letter-spacing: .05em;
     color: var(--text-color);
     transition: var(--tran-03);
     text-transform: none;
@@ -196,6 +190,12 @@ body.dark .switch::before{
 
 /* Mobile responsive text hidden and conditions css */
 body.dark .text{
+    text-decoration: none;
+    color: var(--text-color) !important;
+}
+
+.text{
+    text-decoration: none;
     color: var(--text-color) !important;
 }
 
@@ -217,10 +217,35 @@ body.dark .text{
 }
 
 .card-img {
-    border-radius: 1rem;
-    box-shadow: 0 20px 30px -28px rgb(0 0 0 / 88%);
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.card-image.w-100 {
+    height: 30rem;
+    position: relative;
+    width: auto !important;
+    overflow: hidden;
+    box-shadow: 0 0 1px var(--box-border-color);
+    margin: 1px;
+    background: #000;
 }
 /* Ending Main Body and Post Image Animation CSS */
+
+button.btn.p-0.list-inline-item {
+    border: none;
+    color: var(--text-color);
+}
+
+.d-flex.flex-column.position-relative {
+    margin-top: 3rem !important;
+}
+
+button.btn.p-0.list-inline-item.ms-1 {
+    border: none;
+}
 
 
 /* Mobile responsive media screen css */
@@ -296,12 +321,6 @@ body.dark .text{
         margin-left: 5rem;
     }
 
-    .card {
-        margin-bottom: 1.8rem !important;
-        border-radius: 0.375rem !important;
-        box-shadow: 0 0 1px var(--box-border-color) !important;
-    }
-
     .mt {
         margin-top: 1.5rem !important;
         margin-bottom: 1.8rem !important;
@@ -313,16 +332,8 @@ body.dark .text{
         box-shadow: 0 0 1px var(--box-border-color);
     }
 
-    .profile {
-        top: -2px;
-        width: auto;
-        border-radius: 0;
-        background: none;
-        box-shadow: none;
-    }
-
-    .col.col-10.p-0.w-100.mt-0 {
-        margin-top: 2rem !important;
+    .d-flex.flex-column.position-relative {
+        margin-top: 2.4rem !important;
     }
 
     li.nav-link.d-none.align-items-center.profile.position-fixed.me-0 {
@@ -432,11 +443,6 @@ body.dark .text{
     .prev-btn {
         display: block !important;
         margin-top: 1.5rem !important;
-    }
-
-    /* Non-Mrs-CSS */
-    .profile {
-        position: inherit !important;
     }
 
 }

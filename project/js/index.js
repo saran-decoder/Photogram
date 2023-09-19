@@ -9,6 +9,7 @@ command_display = document.querySelector('.form-group'),
 class_ctrl = document.querySelector('.sys_controler'),
 container = document.querySelector('.containers'),
 imageCount = document.querySelector('.image-count'),
+text_msg = document.querySelector('.form-group.col-md-12'),
 submit_btn = document.querySelector('.submit');
 
 /** CLICK LISTENER */
@@ -51,6 +52,7 @@ function showImages() {
     class_ctrl.classList.remove('sys_controler');
     class_add.classList.add('dd_upload');
     submit_btn.classList.add('d-flex');
+    text_msg.classList.add('d-block');
 
     command_display.classList.remove('d-none');
 }
@@ -98,7 +100,7 @@ $(document).ready(function(){
         var len = $(this).val().length;
         // console.log(len);
         if (len >= max) {
-            $('#characterLeft').text("You're have reached the limit");
+            $('#characterLeft').html("<b class='text-danger'>You're have reached the limit</b>");
             $('#characterLeft').addClass('red');
         } else {
             var ch = max - len;
@@ -165,8 +167,52 @@ $('#dell').on('click', function(){
     d.show();
 });
 
+
+// This is the like & unlike button api call jquery
+// $(document).ready(function() {
+//     let clickCount = 0;
+
+//     $('.longPress').click(function() {
+//         clickCount++;
+
+//         if (clickCount === 2) {
+//             // Double-click do any event
+//             alert('Hai Baby!');
+//         }
+//     });
+// });
+$(".btn-like").on("click", function () {
+    post_id = $(this).parents("div").attr("data-id");
+    like_id = "#like-" + post_id;
+    like_count = '#like-count-' + post_id;
+
+    if ($(like_id).hasClass("liked")) {
+        $(like_id).removeClass("liked");
+        $(like_id).removeClass("text-danger");
+        $('.icon-liked').addClass('d-none');
+        $('.icon-like').removeClass('d-none');
+        like = $(like_count).html();
+        like = parseInt(like) - 1;
+        $(like_count).text(like);
+        $.post("/api/posts/unlike", { id: post_id }, function (data) {
+            console.log(data);
+        });
+    } else {
+        $(like_id).addClass("liked");
+        $(like_id).addClass("text-danger");
+        like = $(like_count).html();
+        like = parseInt(like) + 1;
+        $(like_count).text(like);
+        $.post("/api/posts/like", { id: post_id }, function (data) {
+            console.log(data);
+        });
+    }
+});
+
+
+
 // This is called api and fetch total post count
-$.post('/api/posts/count', {
+$.post('/api/profile/count', {
     id: 10
 }, function(data) {
     console.log(data);

@@ -19,7 +19,7 @@ if (isset($_POST['post_text']) and isset($_FILES['post_image'])) {
 <div class="container card-body">
     <div class="upload p-0">
         <div class="form-outer">
-            <form class="form" id="form" action="" method="POST" enctype="multipart/form-data">
+            <form class="form-data" id="form" action="" method="POST" enctype="multipart/form-data">
 
                 <div class="page slide-page form__container center drag-area h-auto" id="upload-container">
                     <div class="sys_controler">
@@ -27,7 +27,7 @@ if (isset($_POST['post_text']) and isset($_FILES['post_image'])) {
                             <div class="form__files-container containers" id="files-list-container"></div>
 
                             <!-- This is the Contant field -->
-                            <div class="form-group col-md-12 d-none">
+                            <div class="form-group col-md-12">
                                 <style>textarea#message::placeholder{ color: var(--timer-color); }</style>
                                 <textarea class="form-control input-sm px-2" type="textarea" name="post_text" id="message" placeholder="What's on Your Mind?" maxlength="200" rows="6"></textarea>
                                 <span class="help-block d-flex justify-content-end">
@@ -47,7 +47,7 @@ if (isset($_POST['post_text']) and isset($_FILES['post_image'])) {
 
                             <input type="file" accept="image/*" name="post_image" class="custom-file-input file form__file" id="chooseFile" multiple required>
                         </div>
-                        <div class="field field_btns px-3 m-0">
+                        <div class="field field_btns d-flex justify-content-between position-relative px-3 m-0">
                             <a href="/" class="firstClose close" id="upclose">Close</a>
                             <button type="submit" name="submit" id="post" class="submit justify-content-around align-items-center next" style="display: none;">Post</button>
                         </div>

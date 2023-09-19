@@ -1,0 +1,21 @@
+input.search-input {
+    border: none;
+    outline: 0;
+    padding: 1.8%;
+    padding-left: 2rem;
+    border-radius: 8px;
+    background: var(--bg-body-color);
+    color: var(--text-color);
+}
+
+
+@media (min-width: 992px) {}
+
+@media (min-width: 768px) {
+    .search-layout {
+        left: auto;
+        width: 35rem !important;
+        margin-left: 2.8rem;
+        padding: 10px;
+    }
+}

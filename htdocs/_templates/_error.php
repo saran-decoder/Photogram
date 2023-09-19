@@ -3,6 +3,6 @@
 		<h1 class="mt-5">Error!</h1>
 		<p class="lead">The page that you are trying to load is not available.
 		</p>
-		<a href="/"><p>Go Home</p></a>
+		<a href="/" class="text"><p>Go Home</p></a>
 	</div>
 </main>

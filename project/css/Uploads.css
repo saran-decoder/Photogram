@@ -33,37 +33,29 @@ a.firstClose.close {
 }
 .form-control.input-sm {
     box-shadow: 0 0 0 var(--text-color);
-    background: var(--body-color);
+    background: none !important;
     color: var(--text-color);
     text-transform: capitalize;
     border: none;
-    height: 17rem;
+    height: 16.5rem;
     border-radius: 0;
 }
 
 .form-group {
-    width: 19rem !important;
+    width: 100%;
     height: 15.6rem;
     position: absolute;
     bottom: 6.8rem;
     left: auto;
 }
 
-/* ::-webkit-input-placeholder {
-    color: var(--timer-color) !important;
+button#post {
+    background: var(--body-color);
+    border: none;
+    color: #0a58ca;
+    outline: none;
+    font-size: 1.8rem;
 }
-:-moz-placeholder { /* Upto Firefox 18, Deprecated in Firefox 19  /
-    color: var(--timer-color) !important;  
-}
-::-moz-placeholder {  /* Firefox 19+ /
-    color: var(--timer-color) !important;  
-}
-:-ms-input-placeholder {  
-    color: var(--timer-color) !important;  
-} */
-
-/* This is the Drop image upload field */
-/* MAIN STYLE */
 
 .imgGallery img {
     padding: 8px;
@@ -244,6 +236,9 @@ a.firstClose.close {
     width: 100%;
     height: 100%;
 }
+.form-group.col-md-12.d-block {
+    background: var(--body-color) !important;
+}
 
 
 
@@ -296,7 +291,8 @@ a.firstClose.close {
 
     .form-group {
         bottom: 16rem;
-        left: 23rem;
+        left: 22.5rem;
+        width: 19rem;
     }
     
     .form__files-container {
