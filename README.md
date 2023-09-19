@@ -24,6 +24,8 @@ git clone https://github.com/saran-decoder/photogram.git
 	"db_password": "Your_password",
 	"db_name": "Your_DB_Name",
 	"base_path": "/",
-	"upload_path": "Your_Uploading Photo Save Path"
+	"upload_path": "Your_Uploading Photo Save Path",
+	"avatar_path": "Your_Uploading User Profile Avatar Path",
+	"group_avatar": "Owner_Uploading Group Avatar Path"
 }
 ```
