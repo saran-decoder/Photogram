@@ -1,5 +1,7 @@
 <?php
 
+include_once __DIR__ . "/../traits/SQLGetterSetter.trait.php";
+
 class GroupMessage {
     
     private $conn;

@@ -13,7 +13,7 @@
                             <?php
                                 if (Session::isOwnerOf($profile['owner'])) {
                             ?>
-                            <div class="d-flex justify-content-between position-relative" style="top: 30px;">
+                            <div class="d-flex justify-content-between position-relative" style="top: 1rem;">
                                 <div class="text">
                                     <a class="text" href="../profile-edit" style="color: var(--text-color);">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" fill="currentColor" class="bi bi-columns-gap" viewBox="0 0 16 16">
@@ -32,7 +32,7 @@
                             </div>
                             <?php } ?>
                             <div class="mr-3 d-flex flex-column align-items-center mt-2">
-                                <img src="<?=$profile['avatar']?>" alt="..." width="130" style="border-radius: 4rem;">    
+                                <img src="<?=$profile['avatar']?>" alt="..." width="130" height="130" style="border-radius: 4rem;">    
                                 <div class="pt-3 d-flex flex-column align-items-center">
                                     <h5 class="mb-0 text text-capitalize" style="font-variant: petite-caps;">
                                         <?=$profile['owner']?>
@@ -45,7 +45,7 @@
                         </div>
                     </div>
                     <div class="p-2 d-flex">
-                        <ul class="list-inline mb-0">
+                        <ul class="list-inline mb-0 d-flex align-items-center justify-content-between" style="width: -webkit-fill-available;">
                             <li class="list-inline-item text d-flex align-items-center">
                                 <small class="text-muted" style="color: var(--text-color) !important;">
                                     <i class="fas fa-image mr-1"></i>Posts : 
@@ -57,20 +57,21 @@
                                 <h6 class="font-weight-bold mb-0 ms-1 d-block"><?=$count['image_uri']?></h6>
                                 <?php } ?>
                             </li>
+                            <li class="list-inline-item text d-flex align-items-center"> 
+                                <a href="http://<?=$profile['link']?>" class="font-weight-bold" style="cursor: pointer; text-decoration: auto; text-overflow: ellipsis; overflow: hidden; white-space: nowrap; width: 8rem;"><?=$profile['link']?></a>
+                            </li>
                         </ul>
                     </div>
     
-                    <div class="p-2">
-                        <div class="row" data-masonry='{"percentPosition": true }'>
-                            <?php
-                                $userPosts = Post::getUserposts();
-                                foreach ($userPosts as $post) {
-                            ?>
-                            <div class="col-6">
-                                <img src="<?=$post['image_uri']?>" alt="" class="img-fluid rounded shadow-sm my-2">
-                            </div>
-                            <?php } ?>
+                    <div class="row m-1" data-masonry='{"percentPosition": true }'>
+                        <?php
+                            $userPosts = Post::getUserposts();
+                            foreach ($userPosts as $post) {
+                        ?>
+                        <div class="col-6 p-0">
+                            <img src="<?=$post['image_uri']?>" alt="" class="img-fluid rounded shadow-sm ps-1 pt-1">
                         </div>
+                        <?php } ?>
                     </div>
                 </div>
             </div>

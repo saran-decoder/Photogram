@@ -17,7 +17,7 @@
                 </li>
                 <li class="content-message-title mx-3"><span>Recently</span></li>
                 <li>
-                    <a href="#" data-conversation="#conversation-2">
+                    <a href="discussion/<?=$G['id']?>">
                         <img class="content-message-image" src="<?=$G['g_avatar']?>" alt="">
                         <span class="content-message-info">
                             <span class="content-message-name"><?=$G['g_title']?></span>

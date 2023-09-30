@@ -7,6 +7,7 @@ class Session
     public static $isError = false;
     public static $user = null;
     public static $usersession = null;
+    
     public static function start()
     {
         session_start();

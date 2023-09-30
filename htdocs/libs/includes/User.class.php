@@ -47,22 +47,6 @@ class User
         }
     }
 
-    // public static function def_profile($user)
-    // {
-    //     $conn = Database::getConnection();
-    //     $avatar = "/ava/avatar.jpg";
-    //     $bio = "Hey there! I am using Photogram";
-    //     $userid = Session::getUser()->getID();
-    //     $sql = "INSERT INTO `users` (`userid`, `bio`, `avatar`, `gender`, `dob`, `link`, `uploaded_time`, `owner`)
-    //     VALUES ('$userid', '$bio', '$avatar', '', '', '', now(), '$user');";
-    //     try {
-    //         return $conn->query($sql);
-    //     } catch (Exception $e) {
-    //         echo "Error: " . $sql . "<br>" . $conn->error;
-    //         return false;
-    //     }
-    // }
-
     public static function login($user, $pass)
     {
         $query = "SELECT * FROM `auth` WHERE `username` = '$user' OR `email` = '$user' OR `phone` = '$user'";
@@ -70,13 +54,7 @@ class User
         $result = $conn->query($query);
         if ($result->num_rows == 1) {
             $row = $result->fetch_assoc();
-            //if ($row['password'] == $pass) {
             if (password_verify($pass, $row['password'])) {
-                /*
-                1. Generate Session Token
-                2. Insert Session Token
-                3. Build session and give session to user.
-                */
                 return $row['username'];
             } else {
                 return false;

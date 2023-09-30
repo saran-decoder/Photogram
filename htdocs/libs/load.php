@@ -16,7 +16,7 @@ include_once 'app/Group.class.php';
 
 include_once 'app/test.group.php';
 
-global $__site_config;
+// global $__site_config;
 /*
 Note: Location of configuration
 in lab : /home/user/phtogramconfig.json

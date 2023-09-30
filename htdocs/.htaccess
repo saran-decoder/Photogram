@@ -18,6 +18,8 @@ RewriteEngine On
 # Rewrite URLs to profile.php for username handling
 RewriteRule ^/?profile/([^/]+)?$ profile.php?username=$1 [L,QSA,NC]
 
+RewriteRule ^/?discussion/([^/]+)?$ discussion.php?discuss_name=$1 [L,QSA,NC]
+
 RewriteRule ^/?search([^/]+)?$ search.php?q=$1 [L,QSA,NC]
 
 RewriteRule ^/?files/([^/]+)?$ files.php?name=$1 [L,QSA,NC]

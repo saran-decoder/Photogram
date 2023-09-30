@@ -30,7 +30,7 @@
         <div class="content-messages">
             <ul class="content-messages-list">
                 <li>
-                    <a href="#">
+                    <a href="../profile/<?=$u['owner']?>">
                         <img class="content-message-image" src="<?=$u['avatar']?>" alt="">
                         <span class="content-message-info">
                             <span class="content-message-name"><?=$u['owner']?></span>

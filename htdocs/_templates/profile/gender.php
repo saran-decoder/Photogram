@@ -10,7 +10,7 @@
 			<input type="radio" name="gender" id="Male" value="Male" class="form-inputs" required>
 			<label for="Male" class="form-label m-0">Male</label>
 		</div>
-		<div class="form-row flex-center ms-1">
+		<div class="form-row flex-center">
 			<input type="radio" name="gender" id="Female" value="Female" class="form-inputs" required>
 			<label for="Female" class="form-label m-0">Female</label>
 		</div>

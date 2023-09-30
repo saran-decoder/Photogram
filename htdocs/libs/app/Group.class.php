@@ -51,37 +51,39 @@ class Group
         }
     }
 
-    public static function sendMessage($message) {
-        $db = Database::getConnection();
-        $userid = Session::getUser()->getID();
-        $owner = Session::getUser()->getUsername();
-        $insert_group = "INSERT INTO `message` (`from_user`, `to_user`, `message`, `status`, `update_time`, `owner`) VALUES ('$userid', 1, '$message', 0, now(), '$owner')";
-        if ($db->query($insert_group)) {
-            $id = mysqli_insert_id($db);
-            return new Group($id);
-        } else {
-            echo "<script>window.location.href = '/discussion?error'</script>";
-            return false;
-        }
-    }
+    // public static function sendMessage($message) {
+    //     $db = Database::getConnection();
+    //     $userid = Session::getUser()->getID();
+    //     $owner = Session::getUser()->getUsername();
+    //     $insert_group = "INSERT INTO `message` (`from_user`, `to_user`, `message`, `status`, `update_time`, `owner`) VALUES ('$userid', 1, '$message', 0, now(), '$owner')";
+    //     if ($db->query($insert_group)) {
+    //         $id = mysqli_insert_id($db);
+    //         return new Group($id);
+    //     } else {
+    //         echo "<script>window.location.href = '/discussion?error'</script>";
+    //         return false;
+    //     }
+    // }
 
     // public static function getMessage() {
     //     $db = Database::getConnection();
     // }
 
     public static function getAllGroupinfo() {
-        $db = Database::getConnection();
         $owner = Session::getUser()->getUsername();
-        $sql = "SELECT * FROM `group` WHERE `owner`='$owner'";
+        $db = Database::getConnection();
+        $sql = "SELECT * FROM `group` WHERE `owner` = '$owner'";
         $result = $db->query($sql);
         return $result->fetch_assoc();
     }
-
-    public static function getAllUsername() {
+    
+    public static function getGroup()
+    {
+        $groupID = $_GET['discuss_name'];
         $db = Database::getConnection();
-        $sql = "SELECT `owner` FROM `group` ORDER BY `uploaded_time` DESC";
+        $sql = "SELECT * FROM `group` WHERE `id` = '$groupID'";
         $result = $db->query($sql);
-        return iterator_to_array($result);
+        return $result->fetch_assoc();
     }
 
     public function __construct($id)

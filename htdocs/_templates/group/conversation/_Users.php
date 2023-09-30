@@ -1,9 +1,10 @@
 <?php
-	$group_data = Group::getAllGroupinfo();
-    while ($group_data) {
-        $data = Group::getAllGroupinfo('owner');
+	// $group_data = Group::getAllGroupinfo();
+    // while ($group_data) {
+    //     $data = Group::getAllGroupinfo('owner');
+	$data = Group::getGroup();
 ?>
-<div class="conversation" id="conversation-2">
+<div class="conversation active">
 	<div class="conversation-top">
 		<button type="button" class="conversation-back text">
 			<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-chevron-left" viewBox="0 0 16 16">
@@ -11,7 +12,7 @@
 			</svg>
 		</button>
 		<div class="conversation-user">
-			<img class="conversation-user-image" src="<?=$data['g_avatar']?>" alt="">
+			<img class="conversation-user-image" src="<?=$data['g_avatar']?>" alt="...">
 			<div>
 				<div class="conversation-user-name"><?=$data['g_title']?></div>
 				<?php
@@ -85,13 +86,13 @@
 			</li>
 		</ul>
 	</div>
-	<?php
+	<!-- < ?php
 		if (isset($_POST['g_msg'])) {
 			$message = $_POST['g_message'];
 			Group::sendMessage($message);
 		}
-	?>
-	<form class="row" method="post" action="">
+	?> -->
+	<form method="post" action="">
 		<div class="conversation-form-more">
 			<div class="conversation-form-group-more">
 				<div class="more-conversation">
@@ -141,4 +142,4 @@
 		</div>
 	</form>
 </div>
-<?php break; } ?>
+<!-- < ?php break; } ?> -->

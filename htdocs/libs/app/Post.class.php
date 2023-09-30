@@ -11,6 +11,7 @@ class Post
     public $id;
     public $conn;
     public $table;
+    public $table2;
 
     public static function registerPost($text, $image_tmp)
     {
@@ -30,7 +31,7 @@ class Post
                 $Useravatar = $avatar['avatar']; // Get the avatar value
 
                 $image_uri = "/files/$image_name";
-                $insert_command = "INSERT INTO `posts` (`userid`, `post_text`, `multiple_images`, `image_uri`, `avatar`, `uploaded_time`, `owner`) VALUES ('$userid', '$text', 0, '$image_uri', '$Useravatar', now(), '$author')";
+                $insert_command = "INSERT INTO `posts` (`userid`, `post_text`, `multiple_images`, `image_uri`, `avatar`, `like_count`, `uploaded_time`, `owner`) VALUES ('$userid', '$text', 0, '$image_uri', '$Useravatar', 0, now(), '$author')";
                 // die(var_dump($insert_command));
                 if ($db->query($insert_command)) {
                     $id = mysqli_insert_id($db);
@@ -41,7 +42,7 @@ class Post
                 }
             }
         } else {
-            throw new Exception("Image not uploaded");
+            throw new Exception("Image not uploaded check image extension");
         }
     }
 
@@ -74,6 +75,26 @@ class Post
             }
         } catch(Exception $e) {
             throw new Exception(__CLASS__."::_set_data() -> , function unavailable.");
+        }
+    }
+
+    public function delete()
+    {
+        try {
+            //TODO: Delete the image before deleting the post entry
+            $sql = "DELETE FROM `$this->table` WHERE `id`=$this->id;";
+            if ($this->conn->query($sql)) {
+                $like_sql = "DELETE FROM `$this->table2` WHERE `post_id`=$this->id;";
+                if ($this->conn->query($like_sql)) {
+                    return true;
+                } else {
+                    return false;
+                }
+            } else {
+                return false;
+            }
+        } catch (Exception $e) {
+            throw new Exception(__CLASS__."::delete, data unavailable.");
         }
     }
 
@@ -117,5 +138,6 @@ class Post
         $this->id = $id;
         $this->conn = Database::getConnection();
         $this->table = 'posts';
+        $this->table2 = 'likes';
     }
 }

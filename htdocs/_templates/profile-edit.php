@@ -26,7 +26,7 @@
                             $profile = Profile::getProfile('owner');
                 ?>
                 <div class="overflow-hidden">
-                    <div class="px-2 py-4">
+                    <div class="p-2">
                         <?php
                             if (isset($_FILES['update_image']))
                             {
@@ -51,7 +51,7 @@
                                 <input type="file" accept="image/*" name="update_image" class="custom-file-input file-input form__file"> 
                             </div>
                             <div class="d-flex justify-content-between align-items-center position-relative" style="bottom: 16rem;">
-                                <a class="text" href="profile">
+                                <a class="text" href="profile/<?=$profile['owner']?>">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-chevron-left" viewBox="0 0 16 16">
                                         <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
                                     </svg>

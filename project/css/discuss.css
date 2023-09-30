@@ -543,7 +543,7 @@ button.conversation-form-button.conversation-form-submit.text {
 
 @media screen and (min-width: 767px) {
     .conversation {
-        padding-left: 3.5rem;
+        padding-left: 3.1rem;
         padding-right: 17.5rem;
     }
 }
@@ -568,10 +568,10 @@ button.conversation-form-button.conversation-form-submit.text {
     .conversation-back {
         display: flex;
     }
-    .conversation-default.active {
+    /* .conversation-default.active {
         display: none;
         padding: 16px;
-    }
+    } */
 
     .conversation-item-dropdown-list {
         top: 46px !important;

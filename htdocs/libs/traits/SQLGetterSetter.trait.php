@@ -61,24 +61,6 @@ trait SQLGetterSetter
         }
     }
 
-    public function delete()
-    {
-        if (!$this->conn) {
-            $this->conn = Database::getConnection();
-        }
-        try {
-            //TODO: Delete the image before deleting the post entry
-            $sql = "DELETE FROM `$this->table` WHERE `id`=$this->id;";
-            if ($this->conn->query($sql)) {
-                return true;
-            } else {
-                return false;
-            }
-        } catch (Exception $e) {
-            throw new Exception(__CLASS__."::delete, data unavailable.");
-        }
-    }
-
     public function getID()
     {
         return $this->id;

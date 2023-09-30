@@ -79,11 +79,11 @@ button.btn.text {
 
 .profile-layout {
     width: 100%;
-    padding: 10px;
+    /* padding: 10px;
     height: 100%;
     overflow: auto;
     background: var(--body-color);
-    box-shadow: 0 0 1px var(--box-border-color);
+    box-shadow: 0 0 1px var(--box-border-color); */
 }
 
 label.list-group-item.rounded-3.py-3 {
@@ -208,10 +208,10 @@ button.btn.text.bg-success.m-2 {
     }
 
     .profile-layout {
-        left: auto;
+        /* left: auto; */
         width: 43rem;
         margin-left: 2.8rem;
-        padding: 10px;
-        position: absolute;
+        /* padding: 10px;
+        position: absolute; */
     }
 }

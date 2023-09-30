@@ -228,7 +228,7 @@ body.dark .text{
     position: relative;
     width: auto !important;
     overflow: hidden;
-    box-shadow: 0 0 1px var(--box-border-color);
+    box-shadow: none;
     margin: 1px;
     background: #000;
 }
@@ -443,6 +443,10 @@ button.btn.p-0.list-inline-item.ms-1 {
     .prev-btn {
         display: block !important;
         margin-top: 1.5rem !important;
+    }
+
+    .card-image.w-100 {
+        box-shadow: 0 0 1px var(--box-border-color);
     }
 
 }

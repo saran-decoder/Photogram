@@ -8,8 +8,12 @@ input.search-input {
     color: var(--text-color);
 }
 
+a.text.me-3 {
+    display: block;
+}
 
-@media (min-width: 992px) {}
+
+/* @media (min-width: 992px) {} */
 
 @media (min-width: 768px) {
     .search-layout {
@@ -17,5 +21,9 @@ input.search-input {
         width: 35rem !important;
         margin-left: 2.8rem;
         padding: 10px;
+    }
+
+    a.text.me-3 {
+        display: none;
     }
 }
