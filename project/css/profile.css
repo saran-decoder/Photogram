@@ -2,8 +2,11 @@
 .profile {
     top: -2px;
     width: 100%;
+    height: 40px !important;
     background: var(--body-color);
     box-shadow: 0 0 1px var(--box-border-color);
+    border-bottom-left-radius: 1.5rem;
+    border-bottom-right-radius: 1.5rem;
 }
 
 .imageWrapper {

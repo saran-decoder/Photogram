@@ -14,4 +14,10 @@
 	
 	<link rel="stylesheet" href="/css/style.css">
 
+
+	<!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Marck+Script">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Rakkas">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.12/css/all.css">
+	<link href="https://fonts.googleapis.com/css?family=KoHo" rel="stylesheet"> -->
+
 </head>

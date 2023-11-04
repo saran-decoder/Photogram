@@ -253,7 +253,7 @@ button#post {
 @media (min-width: 768px) {
     .container .upload {
         width: 42rem;
-        margin-left: 3.8rem;
+        margin-left: 1rem;
         margin-top: 3rem;
         padding: 10px;
         height: 33rem;
@@ -261,7 +261,7 @@ button#post {
     }
     
     .container {
-        max-width: 720px !important;
+        max-width: 650px !important;
     }
     
     nav.navbar.w-100.h-100.p-2.position-fixed.rs-navbar.sidebar {
