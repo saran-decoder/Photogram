@@ -267,6 +267,37 @@ class Profile
         return iterator_to_array($result);
     }
 
+    // Start: This code user for search profiles code
+    public static function getAllUser()
+    {
+        $db = Database::getConnection();
+        $sql = "SELECT * FROM `users`";
+        $result = $db->query($sql);
+        return iterator_to_array($result);
+    }
+    public static function getAuthInfo($p)
+    {
+        $db = Database::getConnection();
+        $sql = "SELECT `phone`,`email` FROM `auth` WHERE `id` = '$p'";
+        $result = $db->query($sql);
+        return $result->fetch_assoc();
+    }
+    public static function getTotalLikecount($p)
+    {
+        $db = Database::getConnection();
+        $sql = "SELECT SUM(`like_count`) AS `like_count` FROM `posts` WHERE `owner` = '$p'";
+        $result = $db->query($sql);
+        return $result->fetch_assoc();
+    }
+    public static function getTotalPostcount($p)
+    {
+        $db = Database::getConnection();
+        $sql = "SELECT COUNT(*) AS 'image_uri' FROM `posts` WHERE `owner` = '$p'";
+        $result = $db->query($sql);
+        return $result->fetch_assoc();
+    }
+    // Ended
+
     public function __construct($id)
     {
         $this->id = $id;

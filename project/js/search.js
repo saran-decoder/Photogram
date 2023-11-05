@@ -1,19 +1,32 @@
-const clc = document.querySelector(".cancel");
-const arr = document.querySelector(".arr_container");
-const left_container = document.querySelector(".left_container");
+// This is searching user profile side arr 'active' & 'off' class add & remove jquery
+$(document).ready(function() {
+    // Click event handler for the icons
+    $('.arr_container').click(function() {
+        var uid = $(this).attr('id');
+        $(this).addClass('active_arr');
+        $('#' + uid + "-down").addClass('active');
+        $('#' + uid + "-down").removeClass('off');
+    });
 
-arr.addEventListener("click", () => {
-  arr.classList.add("active_arr");
-  if (left_container.classList.contains("off")) {
-    left_container.classList.remove("off");
-    left_container.classList.add("active");
-  }
+    $('.cancel').click(function() {
+        var uid = $(this).attr('id');
+        $('.arr_container').removeClass('active_arr');
+        $('#' + uid + "-down").addClass('off');
+        $('#' + uid + "-down").removeClass('active');
+    });
 });
 
-clc.addEventListener("click", () => {
-  arr.classList.remove("active_arr");
-  if (left_container.classList.contains("active")) {
-    left_container.classList.remove("off");
-    left_container.classList.add("off");
-  }
-});
+
+// This is The Searching Jquery
+$("#search").on("keyup", filter);
+function filter() {
+    var term = $("#search").val().toLowerCase();
+    $(".list-item").each(function() {
+        var listItem = $(this);
+        if (listItem.html().toLowerCase().indexOf(term) !== -1) {
+            listItem.css("display", "block");
+        } else {
+            listItem.css("display", "none");
+        }
+    });
+}
