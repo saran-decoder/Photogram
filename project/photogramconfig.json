@@ -1,0 +1,12 @@
+{
+	"db_server": "localhost",
+	"db_username": "saran",
+	"db_password": "fubu",
+	"db_name": "photogram",
+	"base_path": "/",
+	"post_path": "/home/saran/photogram_uploads/posts/",
+	"blog_path": "/home/saran/photogram_uploads/blogs/",
+	"avatar_path": "/home/saran/photogram_uploads/avatars/dpavatar/",
+	"group_avatar": "/home/saran/photogram_uploads/group_avatar/",	
+	"bgavatar_path": "/home/saran/photogram_uploads/avatars/bgavatar/"
+}

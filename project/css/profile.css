@@ -1,0 +1,255 @@
+/* Profile, Bgimage, Menus CSS */
+.fancybox-image {
+    border-radius: 1rem;
+}
+
+.main-container {
+    overflow: auto;
+    border-radius: 0 0 20px 20px;
+    /* box-shadow: 0 0 1px var(--box-border-color); */
+}
+
+.profile {
+    position: relative;
+    height: 25vh;
+    min-height: 180px;
+    max-height: 325px;
+    z-index: 1;
+    margin: 10px;
+}
+
+.profile-cover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 1rem;
+}
+
+.profile-menu {
+    position: relative;
+    padding: 0 10px 0 10px;
+    /* background: var(--bg-body-color); */
+    width: -webkit-fill-available;
+    display: flex;
+    border-radius: 0 0 4px 4px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.profile-menu-link {
+    padding: 10px 10px;
+    color: var(--timer-color);
+    transition: 0.3s;
+    cursor: pointer;
+    border-radius: 2rem;
+    display: flex;
+    justify-content: center;
+}
+
+.profile-menu-link.active, .profile-menu-link:hover {
+    color: var(--text-color);
+    background-color: var(--body-color);
+    /* border-bottom: 3px solid #1488fa; */
+}
+
+.profile-avatar {
+    position: absolute;
+    align-items: center;
+    display: flex;
+    z-index: 1;
+    bottom: 16px;
+    left: 16px;
+}
+
+.profile-img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid var(--body-color);
+}
+
+.profile-name {
+    font-size: 20px;
+    font-weight: 400;
+    color: var(--white);
+    text-transform: capitalize;
+    font-family: "DM Sans", sans-serif;
+}
+
+.profile-icon {
+    background: var(--bg-body-color);
+    border-radius: 4rem;
+    display: flex;
+    align-items: center;
+    width: 34px;
+    height: 34px;
+    justify-content: center;
+    border: none;
+}
+
+.profile-pick {
+    position: absolute;
+    padding: 5px;
+    background: var(--body-color);
+    color: var(--text-color);
+    border-radius: 6rem;
+    /* margin: 0 4px 4px 0; */
+    border: 2px solid var(--bs-blue);
+    width: 30px;
+    height: 30px;
+    display: flex;
+}
+
+.pro-info {
+    padding-top: 3px;
+    padding-left: 8px;
+    padding-right: 8px;
+    font-size: smaller;
+    border-radius: 2rem;
+    padding-bottom: 3px;
+    color: var(--text-color);
+    background: var(--body-color);
+}
+
+
+/* Posts CSS */
+.custom-max-width {
+    max-width: fit-content;
+}
+.custom-min-width {
+    min-width: max-content;
+}
+.font-weight-unset {
+    font-weight: normal;
+}
+
+.hcf-masonry-card {
+    display: block;
+    position: relative;
+    overflow: hidden;
+}
+
+.hcf-masonry-card .card-img {
+    object-fit: cover;
+    transform: scale(1);
+    transition: transform 150ms linear;
+}
+
+.hcf-masonry-card:hover .card-img {
+    transform: scale(1.05);
+    transition: transform 150ms linear;
+}
+
+.tab-pane.fade.active.show {
+    display: block;
+}
+
+.tab-pane.fade {
+    display: none;
+}
+
+/* This is the post modal CSS */
+/* Modal Styles */
+.custom-wh {
+    width: -webkit-fill-available;
+    height: -webkit-fill-available;
+    border-radius: 7px;
+}
+.custom-right {
+    right: 0;
+}
+#pick_view .cr-boundary {
+    border-radius: 7px;
+}
+#pick_view .cr-viewport.cr-vp-square {
+    border-radius: 7px !important;
+}
+#pick_view  .cr-slider-wrap {
+    display: none;
+}
+
+#banner_view .cr-boundary {
+    border-radius: 7px;
+}
+#banner_view  .cr-slider-wrap {
+    display: none;
+}
+
+
+
+
+/* About CSS */
+.pro-card {
+    background-color: var(--body-color);
+}
+
+.pro-card .about-color {
+    color: var(--box-border-color);
+}
+
+.pro-card .card-about {
+    color: var(--timer-color);
+}
+
+.pro-card .border {
+    border: 1px solid var(--bg-body-color) !important;
+}
+
+.pro-card .card-info-name {
+    color: var(--box-border-color);
+}
+
+.pro-card .card-info {
+    color: var(--timer-color);
+    font-weight: unset;
+}
+
+
+/* Blog post css */
+.blog-post {
+    background-color: var(--text-color);
+    color: var(--body-color);
+}
+
+
+
+
+
+
+/* Mobile responsive */
+@media (min-width: 768px) {
+    .profile-img {
+        width: 135px;
+        height: 135px;
+    }
+
+    .profile {
+        min-height: 225px;
+    }
+
+    .profile-name {
+        font-size: 22px;
+        font-weight: 600;
+    }
+
+    .profile-pick {
+        margin: 0 8px 8px 0;
+    }
+
+    .main-container {
+        border-radius: 0;
+    }
+
+    .profile-menu {
+        padding: 0 100px 0 100px;
+    }
+
+    .position-relative.p-2 {
+        padding: 1rem !important;
+    }
+}

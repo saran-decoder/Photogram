@@ -1,0 +1,97 @@
+.side-setting {
+    border: 1px solid;
+}
+
+.no-outline {
+    outline: none;
+    color: var(--bs-body-color);
+}
+
+.no-outline:checked {
+    outline: none;
+    color: var(--text-color);
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+.input-group-text {
+    cursor: pointer;
+    background-color: var(--body-color) !important;
+    border: 1px solid var(--bg-body-color) !important;
+}
+.setting-form-control {
+    background-color: var(--body-color);
+    border: 1px solid var(--bg-body-color);
+}
+.setting-form-control:focus {
+    box-shadow: none;
+    background-color: var(--bg-body-color);
+    border: none;
+    color: var(--text-color);
+}
+
+.nav-item a.nav-link {
+    color: var(--text-color);
+}
+.nav-item a.nav-link:hover {
+    color: var(--text-color);
+}
+.nav-item a.nav-link.text.active {
+    background-color: var(--bs-body-color);
+    color: var(--white);
+    border-radius: 5px;
+}
+
+/* This is The Full Page Light Mode and Dark Mode CSS */
+.sun-mode {
+    opacity: 1;
+}
+
+body.dark .sun-mode {
+    display: none;
+    opacity: 0;
+}
+
+.moon-mode {
+    display: none;
+    opacity: 0;
+}
+
+body.dark .moon-mode {
+    left: 0;
+    opacity: 1;
+    display: block;
+    position: inherit;
+}
+/* Ending The Full Page Light Mode and Dark Mode CSS */
+
+/* Mobile responsive */
+@media (min-width: 992px) {
+    .nav-item .nav-link span {
+        display: block !important;
+    }
+}
+
+@media (min-width: 768px) {
+    .overflow-auto.main-display {
+        flex-direction: row !important;
+    }
+
+    .nav-item.mb-0 {
+        margin-bottom: 1rem !important;
+    }
+
+    .nav-icon.list-unstyled {
+        flex-direction: column !important;
+    }
+
+    .nav-item a.nav-link {
+        justify-content: flex-start !important;
+    }
+
+    li.nav-item.mb-0.me-4 {
+        margin-right: 0 !important;
+    }
+}

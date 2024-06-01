@@ -1,0 +1,15 @@
+/* Modal colors */
+.modal-content {
+    border-radius: 10px;
+    background-color: var(--body-color);
+    box-shadow: 0 0 1px var(--bg-body-color);
+}
+
+.modal-header, .modal-footer {
+    box-shadow: 0 0 2px var(--timer-color);
+    border: none !important;
+}
+
+.cr-viewport.cr-vp-square {
+    border: 1px solid var(--timer-color);
+}
