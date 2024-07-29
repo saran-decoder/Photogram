@@ -11,7 +11,7 @@
                                     $uploaded_time = Carbon::parse($p->getUploadedTime());
                                     $uploaded_time_str = $uploaded_time->diffForHumans();
                         ?>
-                        <div class="col-12 col-md-6 col-lg-4 hcf-isotope-item" id="post-<?=$blog['id']?>">
+                        <div class="col-12 col-md-6 col-lg-4 hcf-isotope-item" id="post-<?=$post['id']?>">
                             <a class="hcf-masonry-card rounded rounded-4" type="button" id="post-<?=$post['id']?>">
                                 <img class="card-img img-fluid" loading="lazy" src="<?=$post['image_uri']?>" alt="Your Post">
                             </a>

@@ -90,7 +90,7 @@ hr {
     display: block !important;
 }
 
-/* Drag Drop CSS */
+/* Drag & Drop CSS */
 .dragging {
     border: 2px dashed var(--text-color);
     border-radius: 10px;

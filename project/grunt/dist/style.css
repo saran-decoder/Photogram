@@ -1,4 +1,4 @@
-/*Processed by SNA Labs on 1/6/2024 @ 17:12:51*/
+/*Processed by SNA Labs on 28/7/2024 @ 18:3:20*/
 .comment-container
 {
     right: 0;
@@ -235,7 +235,7 @@ p.text-truncate.mb-0 {
     font-size: 120%;
     font-weight: 400;
     line-height: 1.6;
-    color: var(--text-color);
+    color: var(--box-border-logreg);
     background-color: #ffffff00;
     background-clip: padding-box;
     border: 2px solid #ffffff00;
@@ -349,7 +349,7 @@ hr {
     display: block !important;
 }
 
-/* Drag Drop CSS */
+/* Drag & Drop CSS */
 .dragging {
     border: 2px dashed var(--text-color);
     border-radius: 10px;
@@ -1013,7 +1013,7 @@ button.active:after {
     display: flex;
     align-items: center;
     flex: 1;
-    justify-content: space-around;
+    justify-content: center;
 }
 .login-container .login-form .login-form-inner {
     width: 340px;

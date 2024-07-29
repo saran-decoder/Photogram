@@ -85,7 +85,7 @@
     display: flex;
     align-items: center;
     flex: 1;
-    justify-content: space-around;
+    justify-content: center;
 }
 .login-container .login-form .login-form-inner {
     width: 340px;
